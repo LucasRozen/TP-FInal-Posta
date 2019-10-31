@@ -30,7 +30,10 @@ namespace Agenda3.Models
             nom = _Nombre;
             IdTEve = _idTipEve;
             IdAmi = _idAmigo;
-
+            dia = Dia;
+            descr = Descipcion;
+            Act = Activo;
+            destac = Destac;
         }
            
 
