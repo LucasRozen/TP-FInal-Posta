@@ -152,6 +152,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Amigos.cs" />
+    <Compile Include="Models\Evento.cs" />
     <Compile Include="Models\TiposEve.cs" />
     <Compile Include="Models\BD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
