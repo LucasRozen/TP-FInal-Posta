@@ -12,7 +12,7 @@ namespace Agenda3.Controllers
         public ActionResult Index()
         {
             
-            ViewBag.ListarEve = BD.ListarEve();
+            ViewBag.ListarEve = BD.ListarTipoEve();
             return View();
         }
 
