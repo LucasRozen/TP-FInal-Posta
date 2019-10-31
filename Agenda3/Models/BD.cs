@@ -22,7 +22,7 @@ namespace Agenda3.Models
         }
         
 
-        public static List<TiposEve> ListarEve()
+        public static List<TiposEve> ListarTipoEve()
         {
 
             List<TiposEve> Lista = new List<TiposEve>();
