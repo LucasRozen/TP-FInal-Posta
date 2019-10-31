@@ -20,7 +20,7 @@ header{
 
 .navegacion ul{
 	list-style: none;
-	background: green;
+	background: #FFA500;
 }
 
 .menu > li{
@@ -76,73 +76,20 @@ header{
 }
 
 .icon {
-	color: white;
+	color: #FFA500;
 	text-decoration: none;
 	padding: .7rem;
 	display: flex;
 	transition: all .5s;
 }
 
-.icon-facebook {
-	background: #2E406E;
-}
 
-.icon-twitter {
-	background: #339DC5;
-}
-
-.icon-youtube {
-	background: #E83028;
-}
-
-.icon-instagram {
-	background: #3F60A5;
-}
-
-.icon:first-child {
-	border-radius: 1rem 0 0 0;
-}
-
-.icon:last-child {
-	border-radius: 0 0 0 1rem;
-}
-
-.icon:hover {
-	padding-right: 3rem;
-	border-radius: 1rem 0 0 1rem;
-	box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.42);
-}
 h1
 {
   text-align: center;
 	font-family: 'Alfa Slab One', cursive;
 }
-.fotoCipu {
-  float: left;
-  margin-left: 330px;
-}
-.textoCipu {
-  float: right;
-  margin-right: 500px;
-	padding-left:50px;
-	padding-top: 50px;
-}
+
 body {
-  background:#59F859;
-}
-.botton {
-	color:red;
-	height: 250px;
-	width: 250px;
-}
-img
-{
-	height:250px;
-	width: 250px;
-}
-.tamaño {
-		width: 100%;
-}
-.LogoH {
-	text-align: center;
+  background:#FFA500;
 }
