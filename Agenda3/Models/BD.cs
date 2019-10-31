@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 
-
 namespace Agenda3.Models
 {
     public class BD
@@ -23,7 +22,7 @@ namespace Agenda3.Models
         }
         
 
-        public static List<TiposEve> ListarNoticias()
+        public static List<TiposEve> ListarEve()
         {
 
             List<TiposEve> Lista = new List<TiposEve>();
@@ -35,14 +34,36 @@ namespace Agenda3.Models
             while (dataReader.Read())
             {
                 TiposEve Eventos = new TiposEve();
-                Eventos.idTipEve = Convert.ToInt32(dataReader["idTipoEve"]);
-                EVentos.TipEve = dataReader["NombreT"].ToString();
+                Eventos.IdTipEve = Convert.ToInt32(dataReader["idTipoEve"]);
+                Eventos.TipEve = dataReader["NombreT"].ToString();
                 
                 Lista.Add(Eventos);
             }
             desconectar(Conexion);
             return Lista;
 
+        }
+        public static List<TiposEve> TraerXTipEve(int Tipo)
+        {
+            List<TiposEve> ListDeEven = new List<TiposEve>();
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandText = "SELECT * FROM TiposEve WHERE idTipoEve = '" + Tipo + "' ";
+            Consulta.CommandType = System.Data.CommandType.Text;
+            SqlDataReader dataReader = Consulta.ExecuteReader();
+            while (dataReader.Read())
+            {
+                TiposEve UnEven = new TiposEve();
+
+                UnEven.IdTipEve = Convert.ToInt32(dataReader["idTipoEve"]);
+                UnEven.TipEve = dataReader["NombreT"].ToString();
+               
+
+                ListDeEven.Add(UnEven);
+
+            }
+            desconectar(Conexion);
+            return ListDeEven;
         }
     }
 }

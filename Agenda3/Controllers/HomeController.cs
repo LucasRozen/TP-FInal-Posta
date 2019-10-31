@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Agenda3.Models;
 
 namespace Agenda3.Controllers
 {
@@ -10,7 +11,17 @@ namespace Agenda3.Controllers
     {
         public ActionResult Index()
         {
+            
+            ViewBag.ListarEve = BD.ListarEve();
             return View();
+        }
+
+        public ActionResult EventosXCategoria(int IdCategoria, string NombreEve)
+        {
+         
+            ViewBag.TipEve = NombreEve;
+            ViewBag.Eventos = BD.TraerXTipEve(IdCategoria);
+            return View("EventosXCategoria");
         }
 
         public ActionResult About()
@@ -26,5 +37,7 @@ namespace Agenda3.Controllers
 
             return View();
         }
+
+     
     }
 }
