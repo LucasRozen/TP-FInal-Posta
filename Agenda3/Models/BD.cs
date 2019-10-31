@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-
+using Amigos;
 namespace Agenda3.Models
 {
     public class BD
@@ -65,5 +65,72 @@ namespace Agenda3.Models
             desconectar(Conexion);
             return ListDeEven;
         }
+        public static List<Amigos> ListarAmigos()
+        {
+            List<Amigos> ListaAmigos = new List<Amigos>();
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandText = "SELECT * FROM Amigos ";
+            Consulta.CommandType = System.Data.CommandType.Text;
+            SqlDataReader dataReader = Consulta.ExecuteReader();
+            while (dataReader.Read())
+            {
+               Amigos UnAmigo = new Amigos();
+
+                UnAmigo.IdAmigo = Convert.ToInt32(dataReader["IdAmigo"]);
+                UnAmigo.Nombre = dataReader["Nombre"].ToString();
+
+
+                ListDeEven.Add(UnAmigo);
+
+            }
+            desconectar(Conexion);
+            return ListaAmigos;
+        }
+        public static Amigos AgregarAmigo(string nombre)
+        {
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandText = "sp_InsertarAmigo";
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlDataReader dataReader = Consulta.ExecuteReader();
+            while (dataReader.Read())
+            {
+                Amigos UnAmigo = new Amigos();
+
+                UnAmigo.IdAmigo = Convert.ToInt32(dataReader["IdAmigo"]);
+                UnAmigo.Nombre = dataReader["Nombre"].ToString();
+
+
+                ListDeEven.Add(UnAmigo);
+
+            }
+            desconectar(Conexion);
+            return ListaAmigos;
+        }
+        public static Amigos EliminarAmigo()
+        {
+            List<Amigos> ListaAmigos = new List<Amigos>();
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandText = "sp_InsertarAmigo";
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlDataReader dataReader = Consulta.ExecuteReader();
+            while (dataReader.Read())
+            {
+                Amigos UnAmigo = new Amigos();
+
+                UnAmigo.IdAmigo = Convert.ToInt32(dataReader["IdAmigo"]);
+                UnAmigo.Nombre = dataReader["Nombre"].ToString();
+
+
+                ListDeEven.Add(UnAmigo);
+
+            }
+            desconectar(Conexion);
+            return ListaAmigos;
+        }
+
+
     }
 }
