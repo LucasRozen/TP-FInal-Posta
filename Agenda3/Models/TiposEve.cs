@@ -17,7 +17,7 @@ namespace Agenda3.Models
 
         public TiposEve()
         {
-
+            
         }
 
         public TiposEve(int idTipEve, string TipEve)
