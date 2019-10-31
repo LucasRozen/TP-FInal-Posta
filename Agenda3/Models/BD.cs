@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 
+
 namespace Agenda3.Models
 {
     public class BD
@@ -28,7 +29,7 @@ namespace Agenda3.Models
             List<TiposEve> Lista = new List<TiposEve>();
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
-            Consulta.CommandText = "SELECT * From TiposDeEventos";
+            Consulta.CommandText = "SELECT * From TiposEve";
             Consulta.CommandType = System.Data.CommandType.Text;
             SqlDataReader dataReader = Consulta.ExecuteReader();
             while (dataReader.Read())
