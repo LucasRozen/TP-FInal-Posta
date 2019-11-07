@@ -101,6 +101,17 @@ namespace Agenda3.Models
             desconectar(Conexion);
         }
 
+        public static List<Evento> ListarEventos()
+        {
+
+            List<Evento> ListaEventos = new List<Evento>();
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.CommandText = "sp_TraerEve";
+            desconectar(Conexion);
+            return ListaEventos;
+        }
 
     }
 }
