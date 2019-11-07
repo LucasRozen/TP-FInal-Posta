@@ -87,8 +87,8 @@ namespace Agenda3.Models
 
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
-            Consulta.CommandText = "sp_InsertarAmigo";
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.CommandText = "sp_InsertarAmigo";
             SqlDataReader dataReader = Consulta.ExecuteReader();
 
             desconectar(Conexion);
