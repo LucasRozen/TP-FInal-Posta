@@ -1,7 +1,12 @@
-﻿
+﻿@using Agenda3.Models
 @{
     ViewBag.Title = "Amigos";
 }
 
 <h2>Amigos</h2>
-<ul> @foreach(</ul>
+<ul>
+    @foreach (Amigos UnAmigo in ViewBag.ListaAmigos)
+    {
+        <li>@UnAmigo.Nombre</li>     
+    }
+</ul>
