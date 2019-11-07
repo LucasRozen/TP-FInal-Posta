@@ -48,7 +48,7 @@ namespace Agenda3.Models
             List<TiposEve> ListDeEven = new List<TiposEve>();
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
-            Consulta.CommandText = "SELECT * FROM TiposEve WHERE idTipoEve = '" + Tipo + "' ";
+            Consulta.CommandText = "SELECT * FROM Eventos WHERE idTipoEve = '" + Tipo + "' ";
             Consulta.CommandType = System.Data.CommandType.Text;
             SqlDataReader dataReader = Consulta.ExecuteReader();
             while (dataReader.Read())
