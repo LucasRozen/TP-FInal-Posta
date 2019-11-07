@@ -28,57 +28,40 @@ namespace Agenda3.Models
             List<TiposEve> Lista = new List<TiposEve>();
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
-            Consulta.CommandText = "SELECT * From TiposEve";
-            Consulta.CommandType = System.Data.CommandType.Text;
-            SqlDataReader dataReader = Consulta.ExecuteReader();
-            while (dataReader.Read())
-            {
-                TiposEve Eventos = new TiposEve();
-                Eventos.IdTipEve = Convert.ToInt32(dataReader["idTipoEve"]);
-                Eventos.TipEve = dataReader["NombreT"].ToString();
-                
-                Lista.Add(Eventos);
-            }
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.CommandText = "sp_TraerTipos";     
             desconectar(Conexion);
             return Lista;
 
         }
         public static List<TiposEve> TraerXTipEve(int Tipo)
         {
+            TiposEve TE = new TiposEve();
             List<TiposEve> ListDeEven = new List<TiposEve>();
+
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
-            Consulta.CommandText = "SELECT * FROM Eventos WHERE idTipoEve = '" + Tipo + "' ";
-            Consulta.CommandType = System.Data.CommandType.Text;
-            SqlDataReader dataReader = Consulta.ExecuteReader();
-            while (dataReader.Read())
-            {
-                TiposEve UnEven = new TiposEve();
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.CommandText = "sp_TraerxTipo";
 
-                UnEven.IdTipEve = Convert.ToInt32(dataReader["idTipoEve"]);
-                UnEven.TipEve = dataReader["NombreT"].ToString();
-               
+            Consulta.Parameters.AddWithValue("@tipo", TE.TipEve);
+            //             Consulta.Parameters.AddWithValue("@NomA", nombre);
+            //            Consulta.Parameters.AddWithValue("@NomA", nombre);
+            //            Consulta.Parameters.AddWithValue("@NomA", nombre);
 
-                ListDeEven.Add(UnEven);
+            Consulta.ExecuteNonQuery();
 
-            }
             desconectar(Conexion);
             return ListDeEven;
         }
         public static List<Amigos> ListarAmigos()
         {
+          
             List<Amigos> ListaAmigos = new List<Amigos>();
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
-            Consulta.CommandText = "SELECT * FROM Amigos ";
-            Consulta.CommandType = System.Data.CommandType.Text;
-            SqlDataReader dataReader = Consulta.ExecuteReader();
-            while (dataReader.Read())
-            {
-                Amigos UnAmigo = new Amigos();
-                UnAmigo.IdAmigo = Convert.ToInt32(dataReader["IdAmigo"]);
-                UnAmigo.Nombre = dataReader["Nombre"].ToString();           
-            }
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.CommandText = "sp_TraerAmigos";
             desconectar(Conexion);
             return ListaAmigos;
         }
