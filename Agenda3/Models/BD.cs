@@ -20,7 +20,7 @@ namespace Agenda3.Models
         {
             Conexion.Close();
         }
-        
+
 
         public static List<TiposEve> ListarTipoEve()
         {
@@ -36,7 +36,7 @@ namespace Agenda3.Models
                 TiposEve Eventos = new TiposEve();
                 Eventos.IdTipEve = Convert.ToInt32(dataReader["idTipoEve"]);
                 Eventos.TipEve = dataReader["NombreT"].ToString();
-                
+
                 Lista.Add(Eventos);
             }
             desconectar(Conexion);
@@ -57,7 +57,7 @@ namespace Agenda3.Models
 
                 UnEven.IdTipEve = Convert.ToInt32(dataReader["idTipoEve"]);
                 UnEven.TipEve = dataReader["NombreT"].ToString();
-               
+
 
                 ListDeEven.Add(UnEven);
 
@@ -77,34 +77,35 @@ namespace Agenda3.Models
             {
                 Amigos UnAmigo = new Amigos();
                 UnAmigo.IdAmigo = Convert.ToInt32(dataReader["IdAmigo"]);
-                UnAmigo.Nombre = dataReader["Nombre"].ToString();           
+                UnAmigo.Nombre = dataReader["Nombre"].ToString();
             }
             desconectar(Conexion);
             return ListaAmigos;
         }
         public void AgregarAmigo(string nombre)
         {
-            
+
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandText = "sp_InsertarAmigo";
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             SqlDataReader dataReader = Consulta.ExecuteReader();
-            
+
             desconectar(Conexion);
-         
+
         }
         public void EliminarAmigo()
         {
-          
+
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandText = "sp_EliminarAmigo";
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             SqlDataReader dataReader = Consulta.ExecuteReader();
-         
+
             desconectar(Conexion);
         }
+    
 
 
     }
