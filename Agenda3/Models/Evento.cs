@@ -26,14 +26,14 @@ namespace Agenda3.Models
 
         public Evento(int IdEve, string nom,int IdTEve, int IdAmi, DateTime dia, string descr, bool Act, bool destac)
         {
-            IdEve = _IdEve;
-            nom = _Nombre;
-            IdTEve = _idTipEve;
-            IdAmi = _idAmigo;
-            dia = _Dia;
-            descr = _Descipcion;
-            Act = _Activo;
-            destac = _Destac;
+            _IdEve= IdEve ;
+            _Nombre = nom;
+            _idTipEve = IdTEve;
+           _idAmigo = IdAmi ;
+           _Dia = dia ;
+            _Descipcion = descr ;
+             _Activo = Act;
+             _Destac = destac;
         }
            
 
