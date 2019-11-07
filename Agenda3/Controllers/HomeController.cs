@@ -24,19 +24,7 @@ namespace Agenda3.Controllers
             return View("EventosXCategoria");
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+      
 
      
     }
