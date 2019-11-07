@@ -75,60 +75,35 @@ namespace Agenda3.Models
             SqlDataReader dataReader = Consulta.ExecuteReader();
             while (dataReader.Read())
             {
-               Amigos UnAmigo = new Amigos();
-
+                Amigos UnAmigo = new Amigos();
                 UnAmigo.IdAmigo = Convert.ToInt32(dataReader["IdAmigo"]);
-                UnAmigo.Nombre = dataReader["Nombre"].ToString();
-
-
-                ListDeEven.Add(UnAmigo);
-
+                UnAmigo.Nombre = dataReader["Nombre"].ToString();           
             }
             desconectar(Conexion);
             return ListaAmigos;
         }
-        public static Amigos AgregarAmigo(string nombre)
+        public void AgregarAmigo(string nombre)
         {
+            
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandText = "sp_InsertarAmigo";
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             SqlDataReader dataReader = Consulta.ExecuteReader();
-            while (dataReader.Read())
-            {
-                Amigos UnAmigo = new Amigos();
-
-                UnAmigo.IdAmigo = Convert.ToInt32(dataReader["IdAmigo"]);
-                UnAmigo.Nombre = dataReader["Nombre"].ToString();
-
-
-                ListDeEven.Add(UnAmigo);
-
-            }
+            
             desconectar(Conexion);
             return ListaAmigos;
         }
-        public static Amigos EliminarAmigo()
+        public void EliminarAmigo()
         {
-            List<Amigos> ListaAmigos = new List<Amigos>();
+          
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
-            Consulta.CommandText = "sp_InsertarAmigo";
+            Consulta.CommandText = "sp_EliminarAmigo";
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             SqlDataReader dataReader = Consulta.ExecuteReader();
-            while (dataReader.Read())
-            {
-                Amigos UnAmigo = new Amigos();
-
-                UnAmigo.IdAmigo = Convert.ToInt32(dataReader["IdAmigo"]);
-                UnAmigo.Nombre = dataReader["Nombre"].ToString();
-
-
-                ListDeEven.Add(UnAmigo);
-
-            }
+         
             desconectar(Conexion);
-            return ListaAmigos;
         }
 
 
