@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+
 namespace Agenda3.Models
 {
     public class BD
@@ -47,7 +48,7 @@ namespace Agenda3.Models
             List<TiposEve> ListDeEven = new List<TiposEve>();
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
-            Consulta.CommandText = "SELECT * FROM TiposEve WHERE idTipoEve = '" + Tipo + "' ";
+            Consulta.CommandText = "SELECT * FROM Eventos WHERE idTipoEve = '" + Tipo + "' ";
             Consulta.CommandType = System.Data.CommandType.Text;
             SqlDataReader dataReader = Consulta.ExecuteReader();
             while (dataReader.Read())
@@ -107,7 +108,7 @@ namespace Agenda3.Models
             desconectar(Conexion);
             return ListaAmigos;
         }
-        public static Amigos EliminarAmigo()
+        public static List<Amigos> EliminarAmigo()
         {
             List<Amigos> ListaAmigos = new List<Amigos>();
             SqlConnection Conexion = Conectar();
@@ -123,7 +124,7 @@ namespace Agenda3.Models
                 UnAmigo.Nombre = dataReader["Nombre"].ToString();
 
 
-                ListDeEven.Add(UnAmigo);
+                ListaAmigos.Add(UnAmigo);
 
             }
             desconectar(Conexion);

@@ -26,4 +26,3 @@ namespace Agenda3.Models
 
     }
 }
-
