@@ -87,23 +87,34 @@ namespace Agenda3.Models
             
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
-            Consulta.CommandText = "sp_InsertarAmigo";
-            cmd.Parameters.AddWithValue("@NomA",nombre.ToString());       
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            SqlDataReader dataReader = Consulta.ExecuteReader();
+            Consulta.CommandText = "sp_InsertarAmigo";
+
+            Consulta.Parameters.AddWithValue("@NomA", nombre);
+//             Consulta.Parameters.AddWithValue("@NomA", nombre);
+//            Consulta.Parameters.AddWithValue("@NomA", nombre);
+//            Consulta.Parameters.AddWithValue("@NomA", nombre);
+
+            Consulta.ExecuteNonQuery();
             
             desconectar(Conexion);
          
         }
-        public void EliminarAmigo()
+        public void EliminarAmigo(string nombre)
         {
-          
+
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
-            Consulta.CommandText = "delete* from amigos where Amigos.Nombre = '"+ nombre+"'";
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            SqlDataReader dataReader = Consulta.ExecuteReader();
-         
+            Consulta.CommandText = "sp_EliminarAmigo";
+
+            Consulta.Parameters.AddWithValue("@NomA", nombre);
+            //             Consulta.Parameters.AddWithValue("@NomA", nombre);
+            //            Consulta.Parameters.AddWithValue("@NomA", nombre);
+            //            Consulta.Parameters.AddWithValue("@NomA", nombre);
+
+            Consulta.ExecuteNonQuery();
+
             desconectar(Conexion);
         }
 
