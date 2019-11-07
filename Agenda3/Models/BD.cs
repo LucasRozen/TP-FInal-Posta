@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-using Amigos;
+
 namespace Agenda3.Models
 {
     public class BD
@@ -92,7 +92,7 @@ namespace Agenda3.Models
             SqlDataReader dataReader = Consulta.ExecuteReader();
             
             desconectar(Conexion);
-            return ListaAmigos;
+         
         }
         public void EliminarAmigo()
         {
