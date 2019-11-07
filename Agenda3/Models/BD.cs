@@ -62,7 +62,7 @@ namespace Agenda3.Models
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            Consulta.CommandText = "sp_InsertarAmigo";
+            Consulta.CommandText = "sp_TraerAmigos";
             SqlDataReader dataReader = Consulta.ExecuteReader();
             while (dataReader.Read())
             {
@@ -88,7 +88,6 @@ namespace Agenda3.Models
         }
         public void EliminarAmigo(string nombre)
         {
-
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
@@ -97,7 +96,6 @@ namespace Agenda3.Models
             //             Consulta.Parameters.AddWithValue("@NomA", nombre);
             //            Consulta.Parameters.AddWithValue("@NomA", nombre);
             //            Consulta.Parameters.AddWithValue("@NomA", nombre);
-
             Consulta.ExecuteNonQuery();
             desconectar(Conexion);
         }
