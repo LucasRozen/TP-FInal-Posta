@@ -1,4 +1,22 @@
-﻿@{
+﻿@using Agenda3.Models
+
+@{
     ViewBag.Title = "Home Page";
 }
 
+<head>
+    <title> Noticia Destacada </title>
+</head>
+<body>
+    @foreach (Evento UnEvento in ViewBag.ListarTipoEve)
+    {
+        if (UnEvento.Destac == true)
+        {
+            <h2>@UnEvento.Nombre</h2>
+
+            <a href='@Url.Action("DetalleEve","Home", new { idEvento =UnEvento.IdEve, Nombre = UnEvento.Nombre})'>Detalle de la Noticia---AQUI</a>
+
+        }
+    }
+
+</body>
