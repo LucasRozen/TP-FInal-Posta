@@ -24,13 +24,6 @@ namespace Agenda3.Models
         public bool Activo { get => _Activo; set => _Activo = value; }
         public bool Destac { get => _Destac; set => _Destac = value; }
 
-
-        public Evento()
-        {
-
-        }
-
-
         public Evento(int IdEve, string nom,int IdTEve, int IdAmi, DateTime dia, string descr, bool Act, bool destac)
         {
             IdEve = _IdEve;
@@ -44,7 +37,10 @@ namespace Agenda3.Models
         }
            
 
-       
+        public Evento()
+        {
+
+        }
 
         
     }

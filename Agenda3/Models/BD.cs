@@ -124,7 +124,7 @@ namespace Agenda3.Models
                 UnAmigo.Nombre = dataReader["Nombre"].ToString();
 
 
-                ListDeEven.Add(UnAmigo);
+                ListaAmigos.Add(UnAmigo);
 
             }
             desconectar(Conexion);
