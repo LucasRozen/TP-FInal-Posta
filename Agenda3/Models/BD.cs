@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-
+using Amigos;
 namespace Agenda3.Models
 {
     public class BD
@@ -108,7 +108,7 @@ namespace Agenda3.Models
             desconectar(Conexion);
             return ListaAmigos;
         }
-        public static List<Amigos> EliminarAmigo()
+        public static Amigos EliminarAmigo()
         {
             List<Amigos> ListaAmigos = new List<Amigos>();
             SqlConnection Conexion = Conectar();
@@ -124,7 +124,7 @@ namespace Agenda3.Models
                 UnAmigo.Nombre = dataReader["Nombre"].ToString();
 
 
-                ListaAmigos.Add(UnAmigo);
+                ListDeEven.Add(UnAmigo);
 
             }
             desconectar(Conexion);
