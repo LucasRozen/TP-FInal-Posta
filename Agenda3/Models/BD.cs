@@ -70,8 +70,8 @@ namespace Agenda3.Models
             List<Amigos> ListaAmigos = new List<Amigos>();
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
-            Consulta.CommandText = "SELECT * FROM Amigos ";
-            Consulta.CommandType = System.Data.CommandType.Text;
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.CommandText = "sp_InsertarAmigo";
             SqlDataReader dataReader = Consulta.ExecuteReader();
             while (dataReader.Read())
             {
@@ -80,6 +80,7 @@ namespace Agenda3.Models
                 UnAmigo.Nombre = dataReader["Nombre"].ToString();           
             }
             desconectar(Conexion);
+            Consulta.ExecuteReader();
             return ListaAmigos;
         }
         public void AgregarAmigo(string nombre)
