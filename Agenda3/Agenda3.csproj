@@ -147,6 +147,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BackOfficeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -197,6 +198,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\EventosXCategoria.cshtml" />
     <Content Include="Views\Home\Amigos.cshtml" />
+    <Content Include="Views\BackOffice\Index.cshtml" />
+    <Content Include="Views\BackOffice\Eventos.cshtml" />
+    <Content Include="Views\BackOffice\Amigos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

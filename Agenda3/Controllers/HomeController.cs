@@ -15,6 +15,10 @@ namespace Agenda3.Controllers
             ViewBag.ListarEve = BD.ListarTipoEve();
             return View();
         }
+        public AtionResult BackOffice()
+        {
+            return view;
+        }
         public ActionResult EventosXCategoria(int IdCategoria, string NombreEve)
         {        
             ViewBag.TipEve = NombreEve;
