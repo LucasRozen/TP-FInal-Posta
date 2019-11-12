@@ -5,19 +5,23 @@
 }
 
 <head>
-    <title> Noticia Destacada </title>
+    <title> Evento Destacada </title>
 </head>
 <body>
-    @foreach (Evento UnEvento in ViewBag.ListarEventos)
-    {
-        if (UnEvento.Destac == true)
+    <ul>
+        @foreach (Evento UnEvento in ViewBag.ListarEventos)
         {
-            <h2>@UnEvento.Nombre</h2>
+            if (UnEvento.Destac == true)
+            {
+                <li>@UnEvento.Nombre</li>
 
-            <a href='@Url.Action("DetalleEve","Home", new { idEvento =UnEvento.IdEve, Nombre = UnEvento.Nombre})'>Detalle de la Noticia---AQUI</a>
-            <a href='@Url.Action("Amigos","Home")'>Amigos---AQUI</a>
+                <a href='@Url.Action("DetalleEve","Home", new { idEvento =UnEvento.IdEve, Nombre = UnEvento.Nombre})'>Detalle del Evento---AQUI</a>
 
+            }
         }
-    }
+
+        <a href='@Url.Action("Amigos","Home")'>Amigos---AQUI</a>
+
+    </ul>
 
 </body>

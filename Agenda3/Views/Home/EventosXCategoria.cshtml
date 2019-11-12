@@ -4,5 +4,10 @@
 }
 
 
-
+<ul>
+    @foreach (Evento Unevento in ViewBag.Eventos)
+    {
+        <li>@Unevento.Nombre</li>
+    }
+</ul>
 
