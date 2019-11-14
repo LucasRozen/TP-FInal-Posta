@@ -122,6 +122,20 @@ namespace Agenda3.Models
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             Consulta.CommandText = "sp_TraerEve";
+            SqlDataReader Lector = Consulta.ExecuteReader();
+            while (Lector.Read())
+            {
+                int IdEve = Convert.ToInt32(Lector["IdEve"]);
+                string Nombre = Lector["Nombre"].ToString();
+                int IdTEve = Convert.ToInt32(Lector["TipoEve"]);
+                int IdAmi = Convert.ToInt32(Lector["IdAmigo"]);
+                DateTime dia = Convert.ToDateTime(Lector["Dia"]);
+                string descr = Lector["Descripcion"].ToString();
+                bool Act = Convert.ToBoolean(Lector["Activo"]);
+                bool destac = Convert.ToBoolean(Lector["Destac"]);
+                Evento UnEven = new Evento(IdEve, Nombre, IdTEve, IdAmi, dia, descr, Act, destac);
+                ListaEventos.Add(UnEven);
+            }
             desconectar(Conexion);
             return ListaEventos;
         }
