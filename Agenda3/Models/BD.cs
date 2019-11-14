@@ -44,10 +44,10 @@ namespace Agenda3.Models
             return Lista;
 
         }
-        public static List<TiposEve> TraerXTipEve(int Tipo)
+        public static List<Evento> TraerXTipEve(int Tipo)
         {
           
-            List<TiposEve> ListDeEven = new List<TiposEve>();
+            List<Evento> ListDeEven = new List<Evento>();
 
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
@@ -67,7 +67,7 @@ namespace Agenda3.Models
                 bool Act = Convert.ToBoolean(Lector["Activo"]);
                 bool destac = Convert.ToBoolean(Lector["Destac"]);
               
-                TiposEve UnEveTip = new TiposEve(IdEve, Nombre, IdTEve, IdAmi, dia, descr, Act, destac);
+                Evento UnEveTip = new Evento(IdEve, Nombre, IdTEve, IdAmi, dia, descr, Act, destac);
                 ListDeEven.Add(UnEveTip);
             }
            
