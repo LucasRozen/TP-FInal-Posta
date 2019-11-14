@@ -46,7 +46,7 @@ namespace Agenda3.Models
         }
         public static List<TiposEve> TraerXTipEve(int Tipo)
         {
-            TiposEve TE = new TiposEve();
+          
             List<TiposEve> ListDeEven = new List<TiposEve>();
 
             SqlConnection Conexion = Conectar();
@@ -58,9 +58,16 @@ namespace Agenda3.Models
            
             while (Lector.Read())
             {
-                int idTipEve = Convert.ToInt32(Lector["IdTipoEve"]);
-                string TipEve = Lector["NombreT"].ToString();
-                TiposEve UnEveTip = new TiposEve(idTipEve, TipEve);
+                int IdEve = Convert.ToInt32(Lector["IdEve"]);
+                string Nombre = Lector["Nombre"].ToString();
+                int IdTEve = Convert.ToInt32(Lector["TipoEve"]);
+                int IdAmi = Convert.ToInt32(Lector["IdAmigo"]);
+                DateTime dia = Convert.ToDateTime(Lector["Dia"]);
+                string descr = Lector["Descripcion"].ToString();
+                bool Act = Convert.ToBoolean(Lector["Activo"]);
+                bool destac = Convert.ToBoolean(Lector["Destac"]);
+              
+                TiposEve UnEveTip = new TiposEve(IdEve, Nombre, IdTEve, IdAmi, dia, descr, Act, destac);
                 ListDeEven.Add(UnEveTip);
             }
            
