@@ -4,17 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Net;
+using System.Web;
 
 namespace Agenda3.Models
 {
     public class BD
     {
-        public static string connectionString = "Server=.;Database=Agenda3;Trusted_Connection=True;";
-        private static SqlConnection Conectar()
+        private static SqlConnection conectar()
         {
-            SqlConnection Conn = new SqlConnection(connectionString);
-            Conn.Open();
-            return Conn;
+            System.Security.SecureString contra = new NetworkCredential("", "alumno").SecurePassword;
+            contra.MakeReadOnly();
+            string connectionString = "Server=.;Database=Agenda3;Trusted_Connection=True;Integrated Security=false;";​
+            SqlConnection a = new SqlConnection(connectionString);​
+            SqlCredential usr = new SqlCredential("alumno", contra);​
+            a.Credential = usr;​
+            a.Open();​
+            return a;
         }
         public static void desconectar(SqlConnection Conexion)
         {
