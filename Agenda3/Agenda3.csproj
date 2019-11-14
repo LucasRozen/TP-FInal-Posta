@@ -201,6 +201,7 @@
     <Content Include="Views\BackOffice\Index.cshtml" />
     <Content Include="Views\BackOffice\Eventos.cshtml" />
     <Content Include="Views\BackOffice\Amigos.cshtml" />
+    <Content Include="Views\Home\DetalleEve.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
