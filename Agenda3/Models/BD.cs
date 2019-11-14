@@ -31,7 +31,7 @@ namespace Agenda3.Models
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            Consulta.CommandText = "sp_TraerTipos";
+            Consulta.CommandText = "select * from TiposEve";
             SqlDataReader Lector = Consulta.ExecuteReader();
             while (Lector.Read())
             {
