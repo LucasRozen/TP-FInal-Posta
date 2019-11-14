@@ -11,15 +11,11 @@ namespace Agenda3.Models
 {
     public class BD
     {
-        private static SqlConnection conectar()
+        private static SqlConnection Conectar()
         {
-            System.Security.SecureString contra = new NetworkCredential("", "alumno").SecurePassword;
-            contra.MakeReadOnly();
-            string connectionString = "Server=.;Database=Agenda3;Trusted_Connection=True;Integrated Security=false;";​
-            SqlConnection a = new SqlConnection(connectionString);​
-            SqlCredential usr = new SqlCredential("alumno", contra);​
-            a.Credential = usr;​
-            a.Open();​
+            string connectionString = "Server=.;Database=Agenda3;User Id=alumno;Password=alumno1;";
+            SqlConnection a = new SqlConnection(connectionString);
+            a.Open();
             return a;
         }
         public static void desconectar(SqlConnection Conexion)
@@ -35,7 +31,15 @@ namespace Agenda3.Models
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            Consulta.CommandText = "sp_TraerTipos";     
+            Consulta.CommandText = "sp_TraerTipos";
+            SqlDataReader Lector = Consulta.ExecuteReader();
+            while (Lector.Read())
+            {
+                int idTipEve = Convert.ToInt32(Lector["IdTipoEve"]);
+                string TipEve = Lector["NombreT"].ToString();
+                TiposEve UnEve = new TiposEve(idTipEve, TipEve);
+                Lista.Add(UnEve);
+            }
             desconectar(Conexion);
             return Lista;
 
@@ -48,15 +52,18 @@ namespace Agenda3.Models
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.Parameters.AddWithValue("@tipo", Tipo);
             Consulta.CommandText = "sp_TraerxTipo";
-
-            Consulta.Parameters.AddWithValue("@tipo", TE.TipEve);
-            //             Consulta.Parameters.AddWithValue("@NomA", nombre);
-            //            Consulta.Parameters.AddWithValue("@NomA", nombre);
-            //            Consulta.Parameters.AddWithValue("@NomA", nombre);
-
-            Consulta.ExecuteNonQuery();
-
+            SqlDataReader Lector = Consulta.ExecuteReader();
+           
+            while (Lector.Read())
+            {
+                int idTipEve = Convert.ToInt32(Lector["IdTipoEve"]);
+                string TipEve = Lector["NombreT"].ToString();
+                TiposEve UnEveTip = new TiposEve(idTipEve, TipEve);
+                ListDeEven.Add(UnEveTip);
+            }
+           
             desconectar(Conexion);
             return ListDeEven;
         }
