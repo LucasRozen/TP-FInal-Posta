@@ -74,6 +74,36 @@ namespace Agenda3.Models
             desconectar(Conexion);
             return ListDeEven;
         }
+
+        public static Evento TraerUnEvento(int UnIdEvento)
+        {
+            Evento UnEvento = new Evento();
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.Parameters.AddWithValue("@idEvento", UnIdEvento);
+            Consulta.CommandText = "sp_TraerUnEven";
+            SqlDataReader Lector = Consulta.ExecuteReader();
+
+            while (Lector.Read())
+            {
+                UnEvento.IdEve = Convert.ToInt32(Lector["IdEve"]);
+                UnEvento.Nombre = Lector["Nombre"].ToString();
+                UnEvento.IdTipEve = Convert.ToInt32(Lector["TipoEve"]);
+                UnEvento.IdAmigo = Convert.ToInt32(Lector["IdAmigo"]);
+                UnEvento.Dia = Convert.ToDateTime(Lector["Dia"]);
+                UnEvento.Descipcion = Lector["Descripcion"].ToString();
+                UnEvento.Activo = Convert.ToBoolean(Lector["Activo"]);
+                UnEvento.Destac = Convert.ToBoolean(Lector["Destac"]);
+              
+            }
+
+            desconectar(Conexion);
+            return UnEvento;
+
+        }
+
+
         public static List<Amigos> ListarAmigos()
         {
           
