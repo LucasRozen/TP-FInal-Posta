@@ -4,17 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Net;
+using System.Web;
 
 namespace Agenda3.Models
 {
     public class BD
     {
-        public static string connectionString = "Server=.;Database=Agenda3;Trusted_Connection=True;";
         private static SqlConnection Conectar()
         {
-            SqlConnection Conn = new SqlConnection(connectionString);
-            Conn.Open();
-            return Conn;
+            string connectionString = "Server=.;Database=Agenda3;User Id=alumno;Password=alumno1;";
+            SqlConnection a = new SqlConnection(connectionString);
+            a.Open();
+            return a;
         }
         public static void desconectar(SqlConnection Conexion)
         {
@@ -29,31 +31,79 @@ namespace Agenda3.Models
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            Consulta.CommandText = "sp_TraerTipos";     
+            Consulta.CommandText = "sp_TraerTipos";
+            SqlDataReader Lector = Consulta.ExecuteReader();
+            while (Lector.Read())
+            {
+                int idTipEve = Convert.ToInt32(Lector["IdTipoEve"]);
+                string TipEve = Lector["NombreT"].ToString();
+                TiposEve UnEve = new TiposEve(idTipEve, TipEve);
+                Lista.Add(UnEve);
+            }
             desconectar(Conexion);
             return Lista;
 
         }
-        public static List<TiposEve> TraerXTipEve(int Tipo)
+        public static List<Evento> TraerXTipEve(int Tipo)
         {
-            TiposEve TE = new TiposEve();
-            List<TiposEve> ListDeEven = new List<TiposEve>();
+          
+            List<Evento> ListDeEven = new List<Evento>();
 
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.Parameters.AddWithValue("@tipo", Tipo);
             Consulta.CommandText = "sp_TraerxTipo";
-
-            Consulta.Parameters.AddWithValue("@tipo", TE.TipEve);
-            //             Consulta.Parameters.AddWithValue("@NomA", nombre);
-            //            Consulta.Parameters.AddWithValue("@NomA", nombre);
-            //            Consulta.Parameters.AddWithValue("@NomA", nombre);
-
-            Consulta.ExecuteNonQuery();
-
+            SqlDataReader Lector = Consulta.ExecuteReader();
+           
+            while (Lector.Read())
+            {
+                int IdEve = Convert.ToInt32(Lector["IdEve"]);
+                string Nombre = Lector["Nombre"].ToString();
+                int IdTEve = Convert.ToInt32(Lector["TipoEve"]);
+                int IdAmi = Convert.ToInt32(Lector["IdAmigo"]);
+                DateTime dia = Convert.ToDateTime(Lector["Dia"]);
+                string descr = Lector["Descripcion"].ToString();
+                bool Act = Convert.ToBoolean(Lector["Activo"]);
+                bool destac = Convert.ToBoolean(Lector["Destac"]);
+              
+                Evento UnEveTip = new Evento(IdEve, Nombre, IdTEve, IdAmi, dia, descr, Act, destac);
+                ListDeEven.Add(UnEveTip);
+            }
+           
             desconectar(Conexion);
             return ListDeEven;
         }
+
+        public static Evento TraerUnEvento(int UnIdEvento)
+        {
+            Evento UnEvento = new Evento();
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.Parameters.AddWithValue("@idEvento", UnIdEvento);
+            Consulta.CommandText = "sp_TraerUnEven";
+            SqlDataReader Lector = Consulta.ExecuteReader();
+
+            while (Lector.Read())
+            {
+                UnEvento.IdEve = Convert.ToInt32(Lector["IdEve"]);
+                UnEvento.Nombre = Lector["Nombre"].ToString();
+                UnEvento.IdTipEve = Convert.ToInt32(Lector["TipoEve"]);
+                UnEvento.IdAmigo = Convert.ToInt32(Lector["IdAmigo"]);
+                UnEvento.Dia = Convert.ToDateTime(Lector["Dia"]);
+                UnEvento.Descipcion = Lector["Descripcion"].ToString();
+                UnEvento.Activo = Convert.ToBoolean(Lector["Activo"]);
+                UnEvento.Destac = Convert.ToBoolean(Lector["Destac"]);
+              
+            }
+
+            desconectar(Conexion);
+            return UnEvento;
+
+        }
+
+
         public static List<Amigos> ListarAmigos()
         {
           
@@ -109,6 +159,20 @@ namespace Agenda3.Models
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             Consulta.CommandText = "sp_TraerEve";
+            SqlDataReader Lector = Consulta.ExecuteReader();
+            while (Lector.Read())
+            {
+                int IdEve = Convert.ToInt32(Lector["IdEve"]);
+                string Nombre = Lector["Nombre"].ToString();
+                int IdTEve = Convert.ToInt32(Lector["TipoEve"]);
+                int IdAmi = Convert.ToInt32(Lector["IdAmigo"]);
+                DateTime dia = Convert.ToDateTime(Lector["Dia"]);
+                string descr = Lector["Descripcion"].ToString();
+                bool Act = Convert.ToBoolean(Lector["Activo"]);
+                bool destac = Convert.ToBoolean(Lector["Destac"]);
+                Evento UnEven = new Evento(IdEve, Nombre, IdTEve, IdAmi, dia, descr, Act, destac);
+                ListaEventos.Add(UnEven);
+            }
             desconectar(Conexion);
             return ListaEventos;
         }

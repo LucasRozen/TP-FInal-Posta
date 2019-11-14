@@ -4,5 +4,11 @@
 }
 
 
+<h2>@ViewBag.NombreEve</h2>
+    @foreach (Evento UnEvento in ViewBag.Eventos)
+    {
+        <li>@UnEvento.Nombre</li>
+        <a href='@Url.Action("DetalleEve","Home", new { idEvento =UnEvento.IdEve, Nombre = UnEvento.Nombre})'>Detalle del Evento---AQUI</a>
+    }
 
 
