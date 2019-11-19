@@ -13,5 +13,15 @@ namespace Agenda3.Controllers
         {
             return View();
         }
+        public ActionResult Eventos()
+        {
+            ViewBag.ListarEventos = BD.ListarEventos();
+            return View;
+        }
+        public ActionResult Amigos()
+        {
+            ViewBag.ListaAmigos = BD.ListarAmigos();
+            return View;
+        }
     }
 }
