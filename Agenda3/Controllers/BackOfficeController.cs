@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Agenda3.Models;
 
 namespace Agenda3.Controllers
 {
