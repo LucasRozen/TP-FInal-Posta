@@ -35,7 +35,16 @@ namespace Agenda3.Models
              _Activo = Act;
              _Destac = destac;
         }
-           
+        public Evento(int IdEve, string nom, int IdTEve, DateTime dia, string descr, bool Act, bool destac)
+        {
+            _IdEve = IdEve;
+            _Nombre = nom;
+            _idTipEve = IdTEve;
+            _Dia = dia;
+            _Descipcion = descr;
+            _Activo = Act;
+            _Destac = destac;
+        }
 
         public Evento()
         {

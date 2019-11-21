@@ -24,6 +24,7 @@ namespace Agenda3.Controllers
             ViewBag.Eventos = BD.TraerXTipEve(IdCategoria);
             return View("EventosXCategoria");
         }
+
         public ActionResult DetalleEve(int IdEve, string Nombre)
         {
             ViewBag.ListarEventos = BD.ListarEventos();
@@ -31,6 +32,7 @@ namespace Agenda3.Controllers
             ViewBag.Elegido = BD.TraerUnEvento(IdEve);
             return View("DetalleEve");
         }
+
         public ActionResult Amigos()
         {
             ViewBag.ListarEve = BD.ListarTipoEve();
