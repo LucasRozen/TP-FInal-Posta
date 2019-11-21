@@ -18,10 +18,10 @@ header{
 	background: #fff;
 }
 
-.navegacion ul{
-	list-style: none;
-	background: #FFA500;
-}
+    .navegacion ul {
+        list-style: none;
+        background: #0048ff;
+    }
 
 .menu > li{
 	position: relative;
@@ -37,7 +37,7 @@ header{
 }
 
 .menu li a:hover{
-	color: #F13911;
+	color: #0048ff;
 	transition: all .3s;
 }
 
@@ -76,11 +76,11 @@ header{
 }
 
 .icon {
-	color: #FFA500;
-	text-decoration: none;
-	padding: .7rem;
-	display: flex;
-	transition: all .5s;
+    color: #0048ff;
+    text-decoration: none;
+    padding: .7rem;
+    display: flex;
+    transition: all .5s;
 }
 
 
@@ -91,5 +91,5 @@ h1
 }
 
 body {
-  background:#FFA500;
+    background: #0048ff;
 }
