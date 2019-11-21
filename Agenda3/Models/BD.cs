@@ -106,13 +106,21 @@ namespace Agenda3.Models
 
         public static List<Amigos> ListarAmigos()
         {
-          
+            Amigos UnAmigo = new Amigos();
             List<Amigos> ListaAmigos = new List<Amigos>();
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             Consulta.CommandText = "sp_TraerAmigos";
-            desconectar(Conexion);
+            SqlDataReader Lector = Consulta.ExecuteReader();
+            while (Lector.Read())
+            {
+                UnAmigo.IdAmigo = Convert.ToInt32(Lector["IdAmigo"]);
+                UnAmigo.Nombre = Lector["Nombre"].ToString();
+                UnAmigo.Activo = Convert.ToBoolean(Lector["Activo"]);
+                ListaAmigos.Add(UnAmigo);
+            }
+             desconectar(Conexion);
             return ListaAmigos;
         }
         public void AgregarAmigo(string nombre)
