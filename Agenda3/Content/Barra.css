@@ -20,7 +20,7 @@ header {
 
     .navegacion ul {
         list-style: none;
-        background: #0048ff;
+        background: #008cff;
     }
 
 .menu > li {
@@ -37,7 +37,7 @@ header {
     }
 
 .menu li a:hover {
-    color: #0048ff;
+    color: #002a59;
     transition: all .3s;
 }
 
@@ -77,7 +77,7 @@ header {
 }
 
 .icon {
-    color: #0048ff;
+    color: #008cff;
     text-decoration: none;
     padding: .7rem;
     display: flex;
@@ -91,5 +91,5 @@ h1 {
 }
 
 body {
-    background: #0048ff;
+    background: #008cff;
 }
