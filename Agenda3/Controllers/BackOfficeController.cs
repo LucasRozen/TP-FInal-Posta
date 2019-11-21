@@ -17,12 +17,12 @@ namespace Agenda3.Controllers
         public ActionResult Eventos()
         {
             ViewBag.ListarEventos = BD.ListarEventos();
-            return View;
+            return View();
         }
         public ActionResult Amigos()
         {
             ViewBag.ListaAmigos = BD.ListarAmigos();
-            return View;
+            return View();
         }
     }
 }
