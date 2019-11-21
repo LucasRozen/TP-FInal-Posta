@@ -1,8 +1,13 @@
 ﻿@using Agenda3.Models
 @{
-    ViewBag.ListarEventos = "Eventos";
+    ViewBag.Title = "Eventos";
 }
 
 <h2>Eventos</h2>
-
+<ul>
+    @foreach (Evento UnEvento in ViewBag.ListarEventos)
+    {
+        <li>@UnEvento.Nombre</li>     
+    }
+</ul>
 
