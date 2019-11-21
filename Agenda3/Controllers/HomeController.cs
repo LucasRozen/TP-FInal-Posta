@@ -25,11 +25,11 @@ namespace Agenda3.Controllers
             return View("EventosXCategoria");
         }
 
-        public ActionResult DetalleEve(int IdEve, string Nombre)
+        public ActionResult DetalleEve(int idEvento, string Nombre)
         {
             ViewBag.ListarEventos = BD.ListarEventos();
             ViewBag.ListarEve = BD.ListarTipoEve();
-            ViewBag.Elegido = BD.TraerUnEvento(IdEve);
+            ViewBag.Elegido = BD.TraerUnEvento(idEvento);
             return View("DetalleEve");
         }
 
