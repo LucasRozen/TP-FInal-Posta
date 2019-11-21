@@ -175,13 +175,12 @@ namespace Agenda3.Models
                 {
                     int IdEve = Convert.ToInt32(Lector["IdEve"]);
                     string Nombre = Lector["Nombre"].ToString();
-                    int IdTEve = Convert.ToInt32(Lector["TipoEve"]);
-                    int IdAmi = Convert.ToInt32(Lector["IdAmigo"]);
+                    int IdTEve = Convert.ToInt32(Lector["TipoEve"]);  
                     DateTime dia = Convert.ToDateTime(Lector["Dia"]);
                     string descr = Lector["Descripcion"].ToString();
                     bool Act = Convert.ToBoolean(Lector["Activo"]);
                     bool destac = Convert.ToBoolean(Lector["Destac"]);
-                    Evento UnEven = new Evento(IdEve, Nombre, IdTEve, IdAmi, dia, descr, Act, destac);
+                    Evento UnEven = new Evento(IdEve, Nombre, IdTEve, dia, descr, Act, destac);
                     ListaEventos.Add(UnEven);
                 }
                 else
@@ -189,11 +188,12 @@ namespace Agenda3.Models
                     int IdEve = Convert.ToInt32(Lector["IdEve"]);
                     string Nombre = Lector["Nombre"].ToString();
                     int IdTEve = Convert.ToInt32(Lector["TipoEve"]);
+                    int IdAmi = Convert.ToInt32(Lector["IdAmigo"]);
                     DateTime dia = Convert.ToDateTime(Lector["Dia"]);
                     string descr = Lector["Descripcion"].ToString();
                     bool Act = Convert.ToBoolean(Lector["Activo"]);
                     bool destac = Convert.ToBoolean(Lector["Destac"]);
-                    Evento UnEven = new Evento(IdEve, Nombre, IdTEve, dia, descr, Act, destac);
+                    Evento UnEven = new Evento(IdEve, Nombre, IdTEve, IdAmi, dia, descr, Act, destac);
                     ListaEventos.Add(UnEven);
                 }
             }
