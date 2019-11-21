@@ -4,5 +4,10 @@
 }
 
 <h2>Eventos</h2>
-
+<ul>
+    @foreach (Amigos UnAmigo in ViewBag.ListaAmigos)
+    {
+        <li>@UnAmigo.Nombre</li>     
+    }
+</ul>
 
