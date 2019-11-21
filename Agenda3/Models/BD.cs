@@ -106,7 +106,7 @@ namespace Agenda3.Models
 
         public static List<Amigos> ListarAmigos()
         {
-            Amigos UnAmigo = new Amigos();
+            
             List<Amigos> ListaAmigos = new List<Amigos>();
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
@@ -115,6 +115,7 @@ namespace Agenda3.Models
             SqlDataReader Lector = Consulta.ExecuteReader();
             while (Lector.Read())
             {
+                Amigos UnAmigo = new Amigos();
                 UnAmigo.IdAmigo = Convert.ToInt32(Lector["IdAmigo"]);
                 UnAmigo.Nombre = Lector["Nombre"].ToString();
                 UnAmigo.Activo = Convert.ToBoolean(Lector["Activo"]);
