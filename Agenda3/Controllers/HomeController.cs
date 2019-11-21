@@ -31,8 +31,9 @@ namespace Agenda3.Controllers
             ViewBag.Elegido = BD.TraerUnEvento(IdEve);
             return View("DetalleEve");
         }
-        public ActionResult ListarAmigos()
-        {        
+        public ActionResult Amigos()
+        {
+            ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListaAmigos = BD.ListarAmigos();
             return View("Amigos");
         }
