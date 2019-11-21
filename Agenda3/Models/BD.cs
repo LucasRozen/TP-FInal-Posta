@@ -58,33 +58,19 @@ namespace Agenda3.Models
            
             while (Lector.Read())
             {
-                if (Lector["IdAmigo"] == DBNull.Value)
-                {
-                    int IdEve = Convert.ToInt32(Lector["IdEve"]);
-                    string Nombre = Lector["Nombre"].ToString();
-                    int IdTEve = Convert.ToInt32(Lector["TipoEve"]);
-                    DateTime dia = Convert.ToDateTime(Lector["Dia"]);
-                    string descr = Lector["Descripcion"].ToString();
-                    bool Act = Convert.ToBoolean(Lector["Activo"]);
-                    bool destac = Convert.ToBoolean(Lector["Destac"]);
-                    Evento UnEveTip = new Evento(IdEve, Nombre, IdTEve, dia, descr, Act, destac);
-                    ListDeEven.Add(UnEveTip);
-                }
-                else
-                {
-                    int IdEve = Convert.ToInt32(Lector["IdEve"]);
-                    string Nombre = Lector["Nombre"].ToString();
-                    int IdTEve = Convert.ToInt32(Lector["TipoEve"]);
-                    int IdAmi = Convert.ToInt32(Lector["IdAmigo"]);
-                    DateTime dia = Convert.ToDateTime(Lector["Dia"]);
-                    string descr = Lector["Descripcion"].ToString();
-                    bool Act = Convert.ToBoolean(Lector["Activo"]);
-                    bool destac = Convert.ToBoolean(Lector["Destac"]);
-                    Evento UnEveTip = new Evento(IdEve, Nombre, IdTEve, IdAmi, dia, descr, Act, destac);
-                    ListDeEven.Add(UnEveTip);
-                }
+                int IdEve = Convert.ToInt32(Lector["IdEve"]);
+                string Nombre = Lector["Nombre"].ToString();
+                int IdTEve = Convert.ToInt32(Lector["TipoEve"]);
+                int IdAmi = Convert.ToInt32(Lector["IdAmigo"]);
+                DateTime dia = Convert.ToDateTime(Lector["Dia"]);
+                string descr = Lector["Descripcion"].ToString();
+                bool Act = Convert.ToBoolean(Lector["Activo"]);
+                bool destac = Convert.ToBoolean(Lector["Destac"]);
+              
+                Evento UnEveTip = new Evento(IdEve, Nombre, IdTEve, IdAmi, dia, descr, Act, destac);
+                ListDeEven.Add(UnEveTip);
             }
-            
+           
             desconectar(Conexion);
             return ListDeEven;
         }
