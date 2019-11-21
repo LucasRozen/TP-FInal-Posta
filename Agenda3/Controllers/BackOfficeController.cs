@@ -12,15 +12,18 @@ namespace Agenda3.Controllers
         // GET: BackOffice
         public ActionResult Index()
         {
+            ViewBag.ListarEve = BD.ListarTipoEve();
             return View();
         }
         public ActionResult Eventos()
         {
+            ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListarEventos = BD.ListarEventos();
             return View();
         }
         public ActionResult Amigos()
         {
+            ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListaAmigos = BD.ListarAmigos();
             return View();
         }
