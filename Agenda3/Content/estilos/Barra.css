@@ -1,82 +1,83 @@
-*{
-	margin: 0;
-	padding: 0;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 
 
-header{
-	width: 100%;
+header {
+    width: 100%;
 }
 
-.navegacion{
-	width: 1000px;
-	margin: 30px auto;
-	background: #fff;
+.navegacion {
+    width: 1000px;
+    margin: 30px auto;
+    background: #fff;
 }
 
     .navegacion ul {
         list-style: none;
-        background: #0048ff;
+        background: #008cff;
     }
 
-.menu > li{
-	position: relative;
-	display: inline-block;
+.menu > li {
+    position: relative;
+    display: inline-block;
 }
 
-.menu > li > a{
-	display: block;
-	padding: 15px 20px;
-	color: #353535;
-	font-family: 'Alfa Slab One', cursive;
-	text-decoration: none;
-}
+    .menu > li > a {
+        display: block;
+        padding: 15px 20px;
+        color: #353535;
+        font-family: 'Alfa Slab One', cursive;
+        text-decoration: none;
+    }
 
-.menu li a:hover{
-	color: #0048ff;
-	transition: all .3s;
+.menu li a:hover {
+    color: #002a59;
+    transition: all .3s;
 }
 
 /* Submenu*/
 
-.submenu{
-	position: absolute;
-	background: #333333;
-	width: 120%;
-	visibility: hidden;
-	opacity: 0;
-	transition: opacity 1.5s;
+.submenu {
+    position: absolute;
+    background: #333333;
+    width: 120%;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1.5s;
 }
 
-.submenu li a{
-	display: block;
-	padding: 15px;
-	color: #fff;
-	font-family: 'Alfa Slab One', cursive;
-	text-decoration: none;
+    .submenu li a {
+        display: block;
+        padding: 15px;
+        color: #fff;
+        font-family: 'Alfa Slab One', cursive;
+        text-decoration: none;
+    }
+
+.menu li:hover .submenu {
+    visibility: visible;
+    opacity: 1;
 }
 
-.menu li:hover .submenu{
-	visibility: visible;
-	opacity: 1;
-}
 .social-bar {
-	position: fixed;
-	right: 0;
-	top: 35%;
-	font-size: 1.5rem;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
-	z-index: 100;
+    position: fixed;
+    right: 0;
+    top: 35%;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 100;
 }
 
 .icon {
-    color: #0048ff;
+    color: #008cff;
     text-decoration: none;
     padding: .7rem;
     display: flex;
@@ -84,12 +85,12 @@ header{
 }
 
 
-h1
-{
-  text-align: center;
-	font-family: 'Alfa Slab One', cursive;
+h1 {
+    text-align: center;
+    font-family: 'Alfa Slab One', cursive;
 }
 
 body {
-    background: #0048ff;
+    background: #008cff;
 }
+
