@@ -96,7 +96,7 @@ namespace Agenda3.Models
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            Consulta.Parameters.AddWithValue("@idEvento", UnIdEvento);
+            Consulta.Parameters.AddWithValue("@id", UnIdEvento);
             Consulta.CommandText = "sp_TraerUnEven";
             SqlDataReader Lector = Consulta.ExecuteReader();
 
