@@ -13,7 +13,7 @@ namespace Agenda3.Models
     {
         private static SqlConnection Conectar()
         {
-            string connectionString = "Server=.;Database=Agenda3;User Id=alumno;Password=alumno;";
+            string connectionString = "Server=.;Database=Agenda3;User Id=alumno;Password=alumno1;";
             SqlConnection a = new SqlConnection(connectionString);
             a.Open();
             return a;
