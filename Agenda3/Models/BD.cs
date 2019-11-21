@@ -171,16 +171,31 @@ namespace Agenda3.Models
             SqlDataReader Lector = Consulta.ExecuteReader();
             while (Lector.Read())
             {
-                int IdEve = Convert.ToInt32(Lector["IdEve"]);
-                string Nombre = Lector["Nombre"].ToString();
-                int IdTEve = Convert.ToInt32(Lector["TipoEve"]);
-                int IdAmi = Convert.ToInt32(Lector["IdAmigo"]);
-                DateTime dia = Convert.ToDateTime(Lector["Dia"]);
-                string descr = Lector["Descripcion"].ToString();
-                bool Act = Convert.ToBoolean(Lector["Activo"]);
-                bool destac = Convert.ToBoolean(Lector["Destac"]);
-                Evento UnEven = new Evento(IdEve, Nombre, IdTEve, IdAmi, dia, descr, Act, destac);
-                ListaEventos.Add(UnEven);
+                if(Lector["IdAmigo"] == DBNull.Value)
+                {
+                    int IdEve = Convert.ToInt32(Lector["IdEve"]);
+                    string Nombre = Lector["Nombre"].ToString();
+                    int IdTEve = Convert.ToInt32(Lector["TipoEve"]);
+                    int IdAmi = Convert.ToInt32(Lector["IdAmigo"]);
+                    DateTime dia = Convert.ToDateTime(Lector["Dia"]);
+                    string descr = Lector["Descripcion"].ToString();
+                    bool Act = Convert.ToBoolean(Lector["Activo"]);
+                    bool destac = Convert.ToBoolean(Lector["Destac"]);
+                    Evento UnEven = new Evento(IdEve, Nombre, IdTEve, IdAmi, dia, descr, Act, destac);
+                    ListaEventos.Add(UnEven);
+                }
+                else
+                {
+                    int IdEve = Convert.ToInt32(Lector["IdEve"]);
+                    string Nombre = Lector["Nombre"].ToString();
+                    int IdTEve = Convert.ToInt32(Lector["TipoEve"]);
+                    DateTime dia = Convert.ToDateTime(Lector["Dia"]);
+                    string descr = Lector["Descripcion"].ToString();
+                    bool Act = Convert.ToBoolean(Lector["Activo"]);
+                    bool destac = Convert.ToBoolean(Lector["Destac"]);
+                    Evento UnEven = new Evento(IdEve, Nombre, IdTEve, dia, descr, Act, destac);
+                    ListaEventos.Add(UnEven);
+                }
             }
             desconectar(Conexion);
             return ListaEventos;
