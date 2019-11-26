@@ -42,8 +42,9 @@ namespace Agenda3.Models
             }
             desconectar(Conexion);
             return Lista;
-
         }
+
+
         public static List<Evento> TraerXTipEve(int Tipo)
         {
           
@@ -90,27 +91,39 @@ namespace Agenda3.Models
             return ListDeEven;
         }
 
-        public static Evento TraerUnEvento(int UnIdEvento)
+        public static Evento TraerUnEvento(int idEvento)
         {
             Evento UnEvento = new Evento();
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            Consulta.Parameters.AddWithValue("@id", UnIdEvento);
+            Consulta.Parameters.AddWithValue("@id", idEvento);
             Consulta.CommandText = "sp_TraerUnEven";
             SqlDataReader Lector = Consulta.ExecuteReader();
 
             while (Lector.Read())
             {
-                UnEvento.IdEve = Convert.ToInt32(Lector["IdEve"]);
-                UnEvento.Nombre = Lector["Nombre"].ToString();
-                UnEvento.IdTipEve = Convert.ToInt32(Lector["TipoEve"]);
-                UnEvento.IdAmigo = Convert.ToInt32(Lector["IdAmigo"]);
-                UnEvento.Dia = Convert.ToDateTime(Lector["Dia"]);
-                UnEvento.Descipcion = Lector["Descripcion"].ToString();
-                UnEvento.Activo = Convert.ToBoolean(Lector["Activo"]);
-                UnEvento.Destac = Convert.ToBoolean(Lector["Destac"]);
-              
+                if (Lector["IdAmigo"] == DBNull.Value)
+                {
+                    UnEvento.IdEve = Convert.ToInt32(Lector["IdEve"]);
+                    UnEvento.Nombre = Lector["Nombre"].ToString();
+                    UnEvento.IdTipEve = Convert.ToInt32(Lector["TipoEve"]);
+                    UnEvento.Dia = Convert.ToDateTime(Lector["Dia"]);
+                    UnEvento.Descripcion = Lector["Descripcion"].ToString();
+                    UnEvento.Activo = Convert.ToBoolean(Lector["Activo"]);
+                    UnEvento.Destac = Convert.ToBoolean(Lector["Destac"]);
+                }
+                else
+                {
+                    UnEvento.IdEve = Convert.ToInt32(Lector["IdEve"]);
+                    UnEvento.Nombre = Lector["Nombre"].ToString();
+                    UnEvento.IdTipEve = Convert.ToInt32(Lector["TipoEve"]);
+                    UnEvento.IdAmigo = Convert.ToInt32(Lector["IdAmigo"]);
+                    UnEvento.Dia = Convert.ToDateTime(Lector["Dia"]);
+                    UnEvento.Descripcion = Lector["Descripcion"].ToString();
+                    UnEvento.Activo = Convert.ToBoolean(Lector["Activo"]);
+                    UnEvento.Destac = Convert.ToBoolean(Lector["Destac"]);
+                }
             }
 
             desconectar(Conexion);

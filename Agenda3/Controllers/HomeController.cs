@@ -25,7 +25,7 @@ namespace Agenda3.Controllers
             return View("EventosXCategoria");
         }
 
-        public ActionResult DetalleEve(int idEvento, string Nombre)
+        public ActionResult DetalleEve(int idEvento)
         {
             ViewBag.ListarEventos = BD.ListarEventos();
             ViewBag.ListarEve = BD.ListarTipoEve();
