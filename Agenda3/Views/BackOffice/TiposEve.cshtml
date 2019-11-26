@@ -1,7 +1,14 @@
-﻿
+﻿@using Agenda3.Models
 @{
     ViewBag.Title = "TiposEve";
 }
 
-<h2>TiposEve</h2>
+<h2>Tipos de Eventos:</h2>
+<ul>
+    @foreach (TiposEve UnTipoEve in ViewBag.ListarTipos)
+    {
+        <li>@TiposEve.</li>     
+    }
+</ul>
+
 
