@@ -28,6 +28,9 @@ namespace Agenda3.Controllers
             ViewBag.ListaAmigos = BD.ListarAmigos();
             return View();
         }
-
+        public ActionResult TiposEve()
+        {
+            return View();
+        }
     }
 }
