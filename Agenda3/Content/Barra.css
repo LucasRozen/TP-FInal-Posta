@@ -40,7 +40,11 @@ header {
     color: #002a59;
     transition: all .3s;
 }
-
+/*Agregar*/
+.Agregar {
+    width: 200px;
+    height: 200px;
+}
 /* Submenu*/
 
 .submenu {
