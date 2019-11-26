@@ -30,18 +30,9 @@ namespace Agenda3.Controllers
         }
         public ActionResult TiposEve()
         {
-            ViewBag.ListarTipos = BD.ListarTipoEve();
+            ViewBag.ListarEve = BD.ListarTipoEve();
+            ViewBag.ListarTipos=BD.ListarTipoEve();
             return View();
         }
-        public ActionResult AgregarAmigo()
-        {
-            return View();
-        }
-        public ActionResult InsertarAmigo(Amigos a)
-        {
-            BD.AgregarAmigo(a.Nombre);
-            return RedirectToAction("Index", "BackOffice");
-        }
-
     }
 }
