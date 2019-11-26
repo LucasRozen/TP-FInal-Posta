@@ -152,7 +152,7 @@ namespace Agenda3.Models
              desconectar(Conexion);
             return ListaAmigos;
         }
-        public void AgregarAmigo(string nombre)
+        public static void AgregarAmigo(string nombre)
         {
             
             SqlConnection Conexion = Conectar();
