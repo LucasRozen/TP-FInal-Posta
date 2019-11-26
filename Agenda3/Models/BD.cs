@@ -42,8 +42,9 @@ namespace Agenda3.Models
             }
             desconectar(Conexion);
             return Lista;
-
         }
+
+
         public static List<Evento> TraerXTipEve(int Tipo)
         {
           
