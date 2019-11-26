@@ -28,5 +28,6 @@ namespace Agenda3.Controllers
             ViewBag.ListaAmigos = BD.ListarAmigos();
             return View();
         }
+
     }
 }
