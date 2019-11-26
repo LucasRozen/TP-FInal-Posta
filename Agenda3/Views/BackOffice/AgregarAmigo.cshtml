@@ -1,0 +1,11 @@
+﻿@using Agenda3.Models;
+
+@model Amigos;
+
+
+@Html.BeginForm("InsertarAmigo","Backoffice", FormMethod.Post) {
+
+<p>Nombre:</p> @Html.TextBoxFor(model => model.Nombre) <br />
+
+<input type="submit" value="Enviar" />
+
