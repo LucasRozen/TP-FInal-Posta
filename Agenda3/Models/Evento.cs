@@ -12,7 +12,7 @@ namespace Agenda3.Models
         private int _idTipEve;
         private int _idAmigo;
         private DateTime _Dia;
-        private string _Descipcion;
+        private string _Descripcion;
         private bool _Activo;
         private bool _Destac;
         public int IdEve { get => _IdEve; set => _IdEve = value; }
@@ -20,7 +20,7 @@ namespace Agenda3.Models
         public int IdTipEve { get => _idTipEve; set => _idTipEve = value; }
         public int IdAmigo { get => _idAmigo; set => _idAmigo = value; }
         public DateTime Dia { get => _Dia; set => _Dia = value; }
-        public string Descipcion { get => _Descipcion; set => _Descipcion = value; }
+        public string Descripcion { get => _Descripcion; set => _Descripcion = value; }
         public bool Activo { get => _Activo; set => _Activo = value; }
         public bool Destac { get => _Destac; set => _Destac = value; }
 
@@ -31,7 +31,7 @@ namespace Agenda3.Models
             _idTipEve = IdTEve;
            _idAmigo = IdAmi ;
            _Dia = dia ;
-            _Descipcion = descr ;
+            _Descripcion = descr ;
              _Activo = Act;
              _Destac = destac;
         }
@@ -41,7 +41,7 @@ namespace Agenda3.Models
             _Nombre = nom;
             _idTipEve = IdTEve;
             _Dia = dia;
-            _Descipcion = descr;
+            _Descripcion = descr;
             _Activo = Act;
             _Destac = destac;
         }
