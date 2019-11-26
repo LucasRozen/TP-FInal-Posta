@@ -30,6 +30,7 @@ namespace Agenda3.Controllers
         }
         public ActionResult TiposEve()
         {
+            ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListarTipos=BD.ListarTipoEve();
             return View();
         }
