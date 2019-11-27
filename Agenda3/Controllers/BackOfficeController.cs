@@ -36,13 +36,15 @@ namespace Agenda3.Controllers
         }
         public ActionResult AgregarAmigo()
         {
+            ViewBag.ListarEve = BD.ListarTipoEve();
+            ViewBag.ListarTipos = BD.ListarTipoEve();
             return View();
         }
         public ActionResult InsertarAmigo(Amigos ami)
         {
             BD.AgregarAmigo(ami.Nombre); 
-            RedirectToAction("Amigos", "Home");
-            return View("Amigos");
+            return RedirectToAction("Amigos", "Home");
+            // return View("Amigos");
         }
 
     }

@@ -161,9 +161,6 @@ namespace Agenda3.Models
             Consulta.CommandText = "sp_InsertarAmigo";
 
             Consulta.Parameters.AddWithValue("@NomA", nombre);
-//          Consulta.Parameters.AddWithValue("@NomA", nombre);
-//          Consulta.Parameters.AddWithValue("@NomA", nombre);
-//          Consulta.Parameters.AddWithValue("@NomA", nombre);
 
             Consulta.ExecuteNonQuery();
             

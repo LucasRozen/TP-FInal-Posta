@@ -7,6 +7,8 @@
 <ul>
     @foreach (Amigos UnAmigo in ViewBag.ListaAmigos)
     {
-        <li>@UnAmigo.Nombre</li> @Url.Action()
+        <li>@UnAmigo.Nombre</li> 
+        <a href="@Url.Action()">Editar</a>
     }
 </ul>
+<a href="@Url.Action("AgregarAmigo", "BackOffice")">Agregar Amigo</a>
