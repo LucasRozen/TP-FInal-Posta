@@ -164,14 +164,14 @@ namespace Agenda3.Models
             Consulta.ExecuteNonQuery();
             desconectar(Conexion);
         }
-        public void EliminarAmigo(string nombre)
+        public static void EliminarAmigo(int id)
         {
 
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             Consulta.CommandText = "sp_EliminarAmigo";
-            Consulta.Parameters.AddWithValue("@NomA", nombre);
+            Consulta.Parameters.AddWithValue("@NomA", id);
             Consulta.ExecuteNonQuery();
             desconectar(Conexion);
         }

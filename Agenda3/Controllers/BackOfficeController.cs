@@ -9,53 +9,51 @@ namespace Agenda3.Controllers
 {
     public class BackOfficeController : Controller
     {
-        void ponerlistar()
-        {
-            ViewBag.ListarEve = BD.ListarTipoEve();
-            ViewBag.ListarEventos = BD.ListarEventos();
-        }
         // GET: BackOffice
         public ActionResult Index()
         {
-            ponerlistar();
+            ViewBag.ListarEve = BD.ListarTipoEve();
+            ViewBag.ListaAmigos = BD.ListarAmigos();
             return View();
         }
         public ActionResult Eventos()
         {
-            ponerlistar();
+            ViewBag.ListarEve = BD.ListarTipoEve();
+            ViewBag.ListarEventos = BD.ListarEventos();
             return View();
         }
         public ActionResult Amigos()
         {
-            ponerlistar();
+            ViewBag.ListarEve = BD.ListarTipoEve();
+            ViewBag.ListaAmigos = BD.ListarAmigos();
             return View();
         }
         public ActionResult TiposEve()
         {
-            ponerlistar();
+            ViewBag.ListarEve = BD.ListarTipoEve();
+            ViewBag.ListarTipos=BD.ListarTipoEve();
             return View();
         }
         public ActionResult AgregarAmigo()
         {
-            ponerlistar();
+            ViewBag.ListarEve = BD.ListarTipoEve();
+            ViewBag.ListarTipos = BD.ListarTipoEve();
             return View();
         }
         public ActionResult InsertarAmigo(Amigos ami)
         {
             BD.AgregarAmigo(ami.Nombre, ami.Activo); 
             return RedirectToAction("Amigos", "Home");
-            // return View("Amigos");
         }
-        public ActionResult AgregarEvento()
+        public ActionResult EliminarAmigo(int id)
         {
-            ponerlistar();
-            return View();
+            BD.EliminarAmigo(id);
+            return RedirectToAction("Amigos", "Home");
         }
-        public ActionResult AgregarTipo()
+        public ActionResult EditarAmigo(int id)
         {
-            ponerlistar();
-            return View();
+            //BD.EliminarAmigo(ami.Nombre, ami.Activo);
+            return RedirectToAction("Amigos", "Home");
         }
-
     }
 }
