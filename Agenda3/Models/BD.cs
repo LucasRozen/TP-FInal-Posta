@@ -176,7 +176,7 @@ namespace Agenda3.Models
             Consulta.ExecuteNonQuery();
             desconectar(Conexion);
         }
-        public static void EditarAmigo(int id, string nombre)
+        public static void EditarAmigo(string nombre, int id)
         {
 
             SqlConnection Conexion = Conectar();
