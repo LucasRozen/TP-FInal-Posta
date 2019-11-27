@@ -44,8 +44,16 @@ namespace Agenda3.Controllers
         {
             BD.AgregarAmigo(ami.Nombre, ami.Activo); 
             return RedirectToAction("Amigos", "Home");
-            // return View("Amigos");
         }
-
+        public ActionResult EliminarAmigo(int id)
+        {
+            BD.EliminarAmigo(id);
+            return RedirectToAction("Amigos", "Home");
+        }
+        public ActionResult EditarAmigo(int id)
+        {
+            //BD.EliminarAmigo(ami.Nombre, ami.Activo);
+            return RedirectToAction("Amigos", "Home");
+        }
     }
 }
