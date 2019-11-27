@@ -176,6 +176,19 @@ namespace Agenda3.Models
             Consulta.ExecuteNonQuery();
             desconectar(Conexion);
         }
+        public static void EditarAmigo(int id, string nombre)
+        {
+
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.CommandText = "sp_EditarAmigo";
+            Consulta.Parameters.AddWithValue("@Id", id);
+            Consulta.Parameters.AddWithValue("@Nomb", nombre);
+            Consulta.ExecuteNonQuery();
+            desconectar(Conexion);
+        }
+
 
         public static List<Evento> ListarEventos()
         {
