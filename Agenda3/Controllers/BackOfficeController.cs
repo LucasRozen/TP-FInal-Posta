@@ -13,7 +13,7 @@ namespace Agenda3.Controllers
         {
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListaAmigos = BD.ListarAmigos();
-        }
+        }     
         public ActionResult Index()
         {
             listaramigos();
