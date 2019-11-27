@@ -2,10 +2,9 @@
 @model Amigos
 
 
-@using (Html.BeginForm("InsertarAmigo", "Backoffice", FormMethod.Post))
+@using (Html.BeginForm("EditarAmigo", "Backoffice", FormMethod.Post))
 {
 
     <p>Nombre:</p> @Html.TextBoxFor(model => model.Nombre) <br />
-    <p>Activo:</p> @Html.CheckBoxFor(model => model.Activo) <br />
     <input type="submit" value="Enviar" />
 }
