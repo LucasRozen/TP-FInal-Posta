@@ -152,7 +152,7 @@ namespace Agenda3.Models
              desconectar(Conexion);
             return ListaAmigos;
         }
-        public static void AgregarAmigo(string nombre)
+        public static void AgregarAmigo(string nombre,bool activo)
         {
             
             SqlConnection Conexion = Conectar();
@@ -161,6 +161,7 @@ namespace Agenda3.Models
             Consulta.CommandText = "sp_InsertarAmigo";
 
             Consulta.Parameters.AddWithValue("@NomA", nombre);
+            Consulta.Parameters.AddWithValue("@Act", activo);
 
             Consulta.ExecuteNonQuery();
             

@@ -1,11 +1,11 @@
-﻿@using Agenda3.Models;
+﻿@using Agenda3.Models
+@model Amigos
 
-@model Amigos;
 
-
-@Html.BeginForm("InsertarAmigo","Backoffice", FormMethod.Post) {
+@using (Html.BeginForm("InsertarAmigo", "Backoffice", FormMethod.Post))
+{
 
 <p>Nombre:</p> @Html.TextBoxFor(model => model.Nombre) <br />
-
+<p>Activo:</p> @Html.CheckBoxFor(model => model.Activo) <br />
 <input type="submit" value="Enviar" />
 }

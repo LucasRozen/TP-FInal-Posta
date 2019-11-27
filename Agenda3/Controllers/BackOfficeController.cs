@@ -42,7 +42,7 @@ namespace Agenda3.Controllers
         }
         public ActionResult InsertarAmigo(Amigos ami)
         {
-            BD.AgregarAmigo(ami.Nombre); 
+            BD.AgregarAmigo(ami.Nombre, ami.Activo); 
             return RedirectToAction("Amigos", "Home");
             // return View("Amigos");
         }
