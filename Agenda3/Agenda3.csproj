@@ -259,6 +259,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\BackOffice\TiposEve.cshtml" />
     <Content Include="Views\BackOffice\AgregarAmigo.cshtml" />
+    <Content Include="Views\BackOffice\EditoAmigo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
