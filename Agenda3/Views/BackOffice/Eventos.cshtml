@@ -7,8 +7,13 @@
 <ul>
     @foreach (Evento UnEvento in ViewBag.ListarEventos)
     {
-        <li>@UnEvento.Nombre</li>
-        <a href="@Url.Action()">Editar</a>
+        if (UnAmigo.Activo == true)
+        {
+            <li>@UnEvento.Nombre</li>
+            <a href="@Url.Action("EditoEventos", "BackOffice", new { id = UnEvento.IdEve })">Editar</a>
+            <a href="@Url.Action("EleminarEvento", "BackOffice", new { id = UnEvento.IdEve })">Eliminar</a>
+        }
     }
 </ul>
 <a href="@Url.Action("AgregarEvento", "BackOffice")">Agregar Evento</a>
+  
