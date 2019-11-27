@@ -9,10 +9,14 @@ namespace Agenda3.Controllers
 {
     public class BackOfficeController : Controller
     {       
-        public ActionResult Index()
+        void listaramigos()
         {
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListaAmigos = BD.ListarAmigos();
+        }
+        public ActionResult Index()
+        {
+            listaramigos();
             return View();
         }
         public ActionResult Eventos()
