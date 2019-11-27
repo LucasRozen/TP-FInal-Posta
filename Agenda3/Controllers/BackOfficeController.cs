@@ -9,35 +9,35 @@ namespace Agenda3.Controllers
 {
     public class BackOfficeController : Controller
     {
+        void ponerlistar()
+        {
+            ViewBag.ListarEve = BD.ListarTipoEve();
+            ViewBag.ListarEventos = BD.ListarEventos();
+        }
         // GET: BackOffice
         public ActionResult Index()
         {
-            ViewBag.ListarEve = BD.ListarTipoEve();
-            ViewBag.ListaAmigos = BD.ListarAmigos();
+            ponerlistar();
             return View();
         }
         public ActionResult Eventos()
         {
-            ViewBag.ListarEve = BD.ListarTipoEve();
-            ViewBag.ListarEventos = BD.ListarEventos();
+            ponerlistar();
             return View();
         }
         public ActionResult Amigos()
         {
-            ViewBag.ListarEve = BD.ListarTipoEve();
-            ViewBag.ListaAmigos = BD.ListarAmigos();
+            ponerlistar();
             return View();
         }
         public ActionResult TiposEve()
         {
-            ViewBag.ListarEve = BD.ListarTipoEve();
-            ViewBag.ListarTipos=BD.ListarTipoEve();
+            ponerlistar();
             return View();
         }
         public ActionResult AgregarAmigo()
         {
-            ViewBag.ListarEve = BD.ListarTipoEve();
-            ViewBag.ListarTipos = BD.ListarTipoEve();
+            ponerlistar();
             return View();
         }
         public ActionResult InsertarAmigo(Amigos ami)
@@ -45,6 +45,16 @@ namespace Agenda3.Controllers
             BD.AgregarAmigo(ami.Nombre, ami.Activo); 
             return RedirectToAction("Amigos", "Home");
             // return View("Amigos");
+        }
+        public ActionResult AgregarEvento()
+        {
+            ponerlistar();
+            return View();
+        }
+        public ActionResult AgregarTipo()
+        {
+            ponerlistar();
+            return View();
         }
 
     }

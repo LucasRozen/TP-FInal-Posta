@@ -7,8 +7,9 @@
 <ul>
     @foreach (TiposEve UnTipoEve in ViewBag.ListarTipos)
     {
-        <li>@UnTipoEve.TipEve</li>     
+        <li>@UnTipoEve.TipEve</li>
+        <a href="@Url.Action()">Editar</a>
     }
 </ul>
-
+<a href="@Url.Action("AgregarTipo", "BackOffice")">Agregar Tipo</a>
 
