@@ -11,6 +11,7 @@ namespace Agenda3.Models
 {
     public class BD
     {
+        //aaaaaa
         private static SqlConnection Conectar()
         {
             string connectionString = "Server=.;Database=Agenda3;User Id=alumno;Password=alumno1;";
