@@ -17,7 +17,7 @@ namespace Agenda3.Models
 
         public Amigos()
         {
-        
+       
         }
 
         public Amigos(int IdAmigo, string Nombre,bool Activo)
