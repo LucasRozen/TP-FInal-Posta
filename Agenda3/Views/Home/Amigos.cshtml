@@ -7,6 +7,9 @@
 <ul>
     @foreach (Amigos UnAmigo in ViewBag.ListaAmigos)
     {
-        <li>@UnAmigo.Nombre</li>     
+        if (UnAmigo.Activo == true)
+        {
+        <li>@UnAmigo.Nombre</li>   
+        }
     }
 </ul>

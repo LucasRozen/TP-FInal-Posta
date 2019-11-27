@@ -7,9 +7,12 @@
 <ul>
     @foreach (Amigos UnAmigo in ViewBag.ListaAmigos)
     {
+        if (UnAmigo.Activo == true)
+        {
         <li>@UnAmigo.Nombre</li>
         <a href="@Url.Action("EditarAmigo", "BackOffice", new { id = UnAmigo.IdAmigo })">Editar</a>
         <a href="@Url.Action("EliminarAmigo", "BackOffice", new { id = UnAmigo.IdAmigo })">Eliminar</a>
+        }
     }
 </ul>
 <a href="@Url.Action("AgregarAmigo", "BackOffice")">Agregar Amigo</a>
