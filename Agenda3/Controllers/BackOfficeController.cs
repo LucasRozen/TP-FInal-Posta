@@ -52,9 +52,9 @@ namespace Agenda3.Controllers
             BD.EliminarAmigo(id);
             return RedirectToAction("Amigos", "Home");
         }
-        public ActionResult EditarAmigo(int id, Amigos ami)
+        public ActionResult EditarAmigo(Amigos ami, int id)
         {
-            BD.EditarAmigo(ami.Nombre, ami.Activo,id);
+            BD.EditarAmigo(ami.Nombre,id);
             return RedirectToAction("Amigos", "Home");
         }
         public ActionResult EditoAmigo()
