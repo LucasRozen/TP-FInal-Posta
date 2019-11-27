@@ -58,5 +58,11 @@ namespace Agenda3.Controllers
             BD.EditarAmigo(ami.Nombre, ami.Activo,id);
             return RedirectToAction("Amigos", "Home");
         }
+        public ActionResult EditoAmigo()
+        {
+            ViewBag.ListarEve = BD.ListarTipoEve();
+            ViewBag.ListarTipos = BD.ListarTipoEve();
+            return View();
+        }
     }
 }
