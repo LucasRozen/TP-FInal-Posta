@@ -40,7 +40,11 @@ header {
     color: #002a59;
     transition: all .3s;
 }
-
+/*Agregar*/
+.Agregar {
+    width: 10px;
+    height: 10px;
+}
 /* Submenu*/
 
 .submenu {
@@ -66,7 +70,7 @@ header {
 }
 
 .social-bar {
-    position: fixed;
+    position: absolute;
     right: 0;
     top: 35%;
     font-size: 1.5rem;
@@ -85,11 +89,17 @@ header {
 }
 
 
-h1 {
+h2 {
     text-align: center;
     font-family: 'Rubik', sans-serif;
+}
+h3 {
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+    font-size:medium
 }
 
 body {
     background: #008cff;
 }
+
