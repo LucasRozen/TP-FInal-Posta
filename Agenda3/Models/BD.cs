@@ -232,15 +232,20 @@ namespace Agenda3.Models
             return ListaEventos;
         }
 
-        public static void AgregarEvento(string nombre, bool activo)
+        public static void AgregarEvento(string nombre,int IdTipEve, int IdAmigo, DateTime Dia, string Descripcion, bool Activo, bool Destac)
         {
 
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            Consulta.CommandText = "sp_InsertarAmigo";
-            Consulta.Parameters.AddWithValue("@NomA", nombre);
-            Consulta.Parameters.AddWithValue("@Act", activo);
+            Consulta.CommandText = "sp_InsertarEve";
+            Consulta.Parameters.AddWithValue("@NomE", nombre);
+            Consulta.Parameters.AddWithValue("@TipoE", IdTipEve);
+            Consulta.Parameters.AddWithValue("@IdA", IdAmigo);
+            Consulta.Parameters.AddWithValue("@dia", Dia);
+            Consulta.Parameters.AddWithValue("@desc", Descripcion);
+            Consulta.Parameters.AddWithValue("@activo", Activo);
+            Consulta.Parameters.AddWithValue("@destac", Destac); 
             Consulta.ExecuteNonQuery();
             desconectar(Conexion);
         }
@@ -251,19 +256,25 @@ namespace Agenda3.Models
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            Consulta.CommandText = "sp_EliminarAmigo";
-            Consulta.Parameters.AddWithValue("@NomA", id);
+            Consulta.CommandText = "sp_EliminarEve";
+            Consulta.Parameters.AddWithValue("@Id", id);
             Consulta.ExecuteNonQuery();
             desconectar(Conexion);
         }
-        public static void EditarEvento(string nombre, int id)
+        public static void EditarEvento(string nombre, int IdTipEve, int IdAmigo, DateTime Dia, string Descripcion, bool Activo, bool Destac, int id)
         {
 
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             Consulta.Parameters.AddWithValue("@Nomb", nombre);
-            Consulta.CommandText = "sp_EditarAmigo";
+            Consulta.Parameters.AddWithValue("@idEve", IdTipEve);
+            Consulta.Parameters.AddWithValue("@idAmi", IdAmigo);
+            Consulta.Parameters.AddWithValue("@dia", Dia);
+            Consulta.Parameters.AddWithValue("@desc", Descripcion);
+            Consulta.Parameters.AddWithValue("@Act", Activo);
+            Consulta.Parameters.AddWithValue("@destac", Destac);
+            Consulta.CommandText = "sp_EditarEve";
             Consulta.Parameters.AddWithValue("@Id", id);
             Consulta.ExecuteNonQuery();
             desconectar(Conexion);
@@ -274,6 +285,28 @@ namespace Agenda3.Models
 
 
         //Rozen
+        public static void AgregarTipo(string nombre)
+        {
 
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.CommandText = "sp_InsertarTipo";
+            Consulta.Parameters.AddWithValue("@Nom", nombre);           
+            Consulta.ExecuteNonQuery();
+            desconectar(Conexion);
+        }
+        public static void EditarTipo(string nombre)
+        {
+
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.Parameters.AddWithValue("@Nomb", nombre);
+            Consulta.CommandText = "sp_EditarTipo";
+            Consulta.Parameters.AddWithValue("@Id", id);
+            Consulta.ExecuteNonQuery();
+            desconectar(Conexion);
+        }
     }
 }

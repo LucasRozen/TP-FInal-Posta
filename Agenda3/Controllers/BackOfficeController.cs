@@ -65,26 +65,30 @@ namespace Agenda3.Controllers
         }
         public ActionResult AgregarEvento()
         {
+            ViewBag.ListarAmigo = BD.ListarAmigos();
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListarTipos = BD.ListarTipoEve();
             return View();
         }
-        public ActionResult InsertarEvento(Amigos ami)
+        public ActionResult InsertarEvento(Evento eve)
         {
-            BD.AgregarAmigo(ami.Nombre, ami.Activo);
+            BD.AgregarEvento(eve.Nombre,eve.IdTipEve, eve.IdAmigo,eve.Dia, eve.Descripcion, eve.Activo, eve.Destac);
             return RedirectToAction("Eventos", "BackOffice");
         }
         public ActionResult EliminarEvento(int id)
         {
-            BD.EliminarAmigo(id);
+            BD.EliminarEvento(id);
             return RedirectToAction("Eventos", "BackOffice");
         }
-        public ActionResult EditarEvento(Amigos ami, int id)
+        public ActionResult EditoEvento(Evento eve, int id)
         {
-            BD.EditarAmigo(ami.Nombre, id);
+            ViewBag.ListarAmigo = BD.ListarAmigos();
+            ViewBag.ListarEve = BD.ListarTipoEve();
+            ViewBag.ListarTipos = BD.ListarTipoEve();
+            BD.EditarEvento(eve.Nombre, eve.IdTipEve, eve.IdAmigo, eve.Dia, eve.Descripcion, eve.Activo, eve.Destac, id);
             return RedirectToAction("Eventos", "BackOffice");
         }
-        public ActionResult EditoEvento()
+        public ActionResult EditarEvento()
         {
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListarTipos = BD.ListarTipoEve();
@@ -98,10 +102,14 @@ namespace Agenda3.Controllers
         }        
         public ActionResult InsertarTipo(TiposEve tip)
         {
-            //BD.AgregarAmigo(tip.TipEve);
+            BD.AgregarTipo(tip.TipEve);
             return RedirectToAction("TiposEve", "BackOffice");
         }
-        
+        public ActionResult EditoEventos()
+        {
+            return View();
+        }
+            
 
     }
 }
