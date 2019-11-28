@@ -1,0 +1,17 @@
+﻿@using Agenda3.Models
+@model Evento
+
+@{
+    ViewBag.Title = "Edito Eventos";
+}
+
+@using (Html.BeginForm("EditoEventos", "Backoffice", FormMethod.Post))
+{
+
+    <p>Nombre:</p> @Html.TextBoxFor(model => model.Nombre) <br />
+    <p>Nombre:</p> @Html.TextBoxFor(model => model.Dia) < br />
+    <p>Nombre:</p> @Html.TextBoxFor(model => model.Descripcion) <br />
+    <p>Nombre:</p> @Html.TextBoxFor(model => model.Activo) <br />
+    <input type="submit" value="Enviar" />
+}
+

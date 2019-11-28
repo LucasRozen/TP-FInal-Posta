@@ -101,7 +101,11 @@ namespace Agenda3.Controllers
             //BD.AgregarAmigo(tip.TipEve);
             return RedirectToAction("TiposEve", "BackOffice");
         }
-        
+        public ActionResult EditoEventos()
+        {
+            return View();
+        }
+            
 
     }
 }
