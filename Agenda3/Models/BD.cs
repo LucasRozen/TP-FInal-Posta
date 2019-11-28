@@ -38,7 +38,8 @@ namespace Agenda3.Models
             {
                 int idTipEve = Convert.ToInt32(Lector["IdTipoEve"]);
                 string TipEve = Lector["NombreT"].ToString();
-                TiposEve UnEve = new TiposEve(idTipEve, TipEve);
+                bool Activo= Convert.ToBoolean(Lector["Activo"]);
+                TiposEve UnEve = new TiposEve(idTipEve, TipEve, Activo);
                 Lista.Add(UnEve);
             }
             desconectar(Conexion);
