@@ -121,7 +121,7 @@ namespace Agenda3.Controllers
             ViewBag.ListarAmigo = BD.ListarAmigos();
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListarTipos = BD.ListarTipoEve();
-            BD.EditarTipo(tps.nombre, id);
+            BD.EditarTipo(tps.TipEve, id);
             return View();
         }
         public ActionResult EditarTipo()
