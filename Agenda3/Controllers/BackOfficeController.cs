@@ -69,9 +69,9 @@ namespace Agenda3.Controllers
             ViewBag.ListarTipos = BD.ListarTipoEve();
             return View();
         }
-        public ActionResult InsertarEvento(Amigos ami)
+        public ActionResult InsertarEvento(Evento eve)
         {
-            BD.AgregarAmigo(ami.Nombre, ami.Activo);
+            BD.AgregarEvento(eve.Nombre,eve.IdTipEve, eve.IdAmigo,eve.Dia, eve.Descripcion, eve.Activo, eve.Destac);
             return RedirectToAction("Eventos", "BackOffice");
         }
         public ActionResult EliminarEvento(int id)
@@ -101,7 +101,11 @@ namespace Agenda3.Controllers
             //BD.AgregarAmigo(tip.TipEve);
             return RedirectToAction("TiposEve", "BackOffice");
         }
-        
+        public ActionResult EditoEventos()
+        {
+            return View();
+        }
+            
 
     }
 }
