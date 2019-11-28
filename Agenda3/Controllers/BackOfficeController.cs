@@ -63,28 +63,28 @@ namespace Agenda3.Controllers
             ViewBag.ListarTipos = BD.ListarTipoEve();
             return View();
         }
-        public ActionResult AgregarAmigo()
+        public ActionResult AgregarEvento()
         {
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListarTipos = BD.ListarTipoEve();
             return View();
         }
-        public ActionResult InsertarAmigo(Amigos ami)
+        public ActionResult InsertarEvento(Amigos ami)
         {
             BD.AgregarAmigo(ami.Nombre, ami.Activo);
             return RedirectToAction("Amigos", "Home");
         }
-        public ActionResult EliminarAmigo(int id)
+        public ActionResult EliminarEvento(int id)
         {
             BD.EliminarAmigo(id);
             return RedirectToAction("Amigos", "Home");
         }
-        public ActionResult EditarAmigo(Amigos ami, int id)
+        public ActionResult EditarEvento(Amigos ami, int id)
         {
             BD.EditarAmigo(ami.Nombre, id);
             return RedirectToAction("Amigos", "Home");
         }
-        public ActionResult EditoAmigo()
+        public ActionResult EditoEvento()
         {
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListarTipos = BD.ListarTipoEve();
