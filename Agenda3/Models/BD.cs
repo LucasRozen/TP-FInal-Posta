@@ -290,5 +290,17 @@ namespace Agenda3.Models
             Consulta.ExecuteNonQuery();
             desconectar(Conexion);
         }
+        public static void EditarTipo(string nombre)
+        {
+
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.Parameters.AddWithValue("@Nomb", nombre);
+            Consulta.CommandText = "sp_EditarTipo";
+            Consulta.Parameters.AddWithValue("@Id", id);
+            Consulta.ExecuteNonQuery();
+            desconectar(Conexion);
+        }
     }
 }
