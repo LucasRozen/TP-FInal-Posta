@@ -11,10 +11,10 @@ namespace Agenda3.Models
 {
     public class BD
     {
-        //aaaaaa
+       
         private static SqlConnection Conectar()
         {
-            string connectionString = "Server=.;Database=Agenda3;User Id=alumno;Password=alumno;";
+            string connectionString = "Server=.;Database=Agenda3;User Id=alumno;Password=alumno1;";
             SqlConnection a = new SqlConnection(connectionString);
             a.Open();
             return a;
@@ -24,7 +24,7 @@ namespace Agenda3.Models
             Conexion.Close();
         }
         
-
+        
         public static List<TiposEve> ListarTipoEve()
         {
 
@@ -230,6 +230,14 @@ namespace Agenda3.Models
             desconectar(Conexion);
             return ListaEventos;
         }
+
+
+
+
+
+
+
+        //Rozen
 
     }
 }
