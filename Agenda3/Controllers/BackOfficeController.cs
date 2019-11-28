@@ -98,7 +98,7 @@ namespace Agenda3.Controllers
         }        
         public ActionResult InsertarTipo(TiposEve tip)
         {
-            BD.AgregarAmigo(tip.Nombre, tip.Activo);
+            //BD.AgregarAmigo(tip.TipEve);
             return RedirectToAction("TiposEve", "BackOffice");
         }
         
