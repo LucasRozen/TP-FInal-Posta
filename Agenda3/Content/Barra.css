@@ -24,12 +24,14 @@ header {
     }
 
 .menu > li {
+    position: absolute;
     position: relative;
     display: inline-block;
 }
 
     .menu > li > a {
-        display: block;
+        position: absolute;
+            display: block;
         padding: 15px 20px;
         color: #353535;
         font-family: 'Rubik', sans-serif;
@@ -57,7 +59,8 @@ header {
 }
 
     .submenu li a {
-        display: block;
+        position: absolute;
+            display: block;
         padding: 15px;
         color: #fff;
         font-family: 'Rubik', sans-serif;
@@ -81,6 +84,7 @@ header {
 }
 
 .icon {
+    position: absolute;
     color: #008cff;
     text-decoration: none;
     padding: .7rem;
