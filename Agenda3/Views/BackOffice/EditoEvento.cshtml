@@ -1,0 +1,18 @@
+﻿@using Agenda3.Models
+@model Amigos
+
+
+@using (Html.BeginForm("EditarEvento", "Backoffice", FormMethod.Post))
+{
+
+    <p>Nombre:</p> @Html.TextBoxFor(model => model.Nombre) <br />
+    <p>Evento:</p> @Html.DropDownListFor(model => model.IdTipEve, new SelectList(ViewBag.ListarTipos, "idTipEve", "TipEve")) <br />
+    <p>Amigo:</p> @Html.DropDownListFor(model => model.IdAmigo, new SelectList(ViewBag.ListarAmigo, "IdAmigo", "Nombre")) <br />
+    <p>Fecha:</p> @Html.TextBoxFor(model => model.Dia) <br />
+    <p>Descripcion:</p> @Html.TextBoxFor(model => model.Descripcion) <br />
+
+
+    <p>Activo:</p> @Html.CheckBoxFor(model => model.Activo) <br />
+    <p>Destacada:</p> @Html.CheckBoxFor(model => model.Destac) <br />
+    <input type="submit" value="Enviar" />
+}

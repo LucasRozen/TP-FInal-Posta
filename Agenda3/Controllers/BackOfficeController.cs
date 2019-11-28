@@ -80,12 +80,12 @@ namespace Agenda3.Controllers
             BD.EliminarEvento(id);
             return RedirectToAction("Eventos", "BackOffice");
         }
-        public ActionResult EditarEvento(Evento eve, int id)
+        public ActionResult EditoEvento(Evento eve, int id)
         {
             BD.EditarEvento(eve.Nombre, eve.IdTipEve, eve.IdAmigo, eve.Dia, eve.Descripcion, eve.Activo, eve.Destac, id);
             return RedirectToAction("Eventos", "BackOffice");
         }
-        public ActionResult EditoEvento()
+        public ActionResult EditarEvento()
         {
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListarTipos = BD.ListarTipoEve();
