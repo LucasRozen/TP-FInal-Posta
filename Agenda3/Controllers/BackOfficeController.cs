@@ -65,6 +65,7 @@ namespace Agenda3.Controllers
         }
         public ActionResult AgregarEvento()
         {
+            ViewBag.ListarAmigo = BD.ListarAmigos();
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListarTipos = BD.ListarTipoEve();
             return View();
