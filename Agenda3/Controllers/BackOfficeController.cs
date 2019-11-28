@@ -116,8 +116,12 @@ namespace Agenda3.Controllers
             BD.EliminarTipo(id);
             return RedirectToAction("TiposEve", "BackOffice");
         }
-        public ActionResult EditoTipos()
+        public ActionResult EditoTipos(TiposEve tps, int id)
         {
+            ViewBag.ListarAmigo = BD.ListarAmigos();
+            ViewBag.ListarEve = BD.ListarTipoEve();
+            ViewBag.ListarTipos = BD.ListarTipoEve();
+            BD.EditarTipo(tps.nombre, id);
             return View();
         }
         public ActionResult EditarTipo()
