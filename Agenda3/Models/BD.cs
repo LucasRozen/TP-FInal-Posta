@@ -14,7 +14,7 @@ namespace Agenda3.Models
        
         private static SqlConnection Conectar()
         {
-            string connectionString = "Server=.;Database=Agenda3;User Id=alumno;Password=alumno;";
+            string connectionString = "Server=.;Database=Agenda3;User Id=alumno;Password=alumno1;";
             SqlConnection a = new SqlConnection(connectionString);
             a.Open();
             return a;
@@ -238,7 +238,7 @@ namespace Agenda3.Models
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            Consulta.CommandText = "sp_InsertarAmigo";
+            Consulta.CommandText = "sp_InsertarEve";
             Consulta.Parameters.AddWithValue("@NomE", nombre);
             Consulta.Parameters.AddWithValue("@TipoE", IdTipEve);
             Consulta.Parameters.AddWithValue("@IdA", IdAmigo);
@@ -256,19 +256,25 @@ namespace Agenda3.Models
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            Consulta.CommandText = "sp_EliminarAmigo";
-            Consulta.Parameters.AddWithValue("@NomA", id);
+            Consulta.CommandText = "sp_EliminarEve";
+            Consulta.Parameters.AddWithValue("@Id", id);
             Consulta.ExecuteNonQuery();
             desconectar(Conexion);
         }
-        public static void EditarEvento(string nombre, int id)
+        public static void EditarEvento(string nombre, int IdTipEve, int IdAmigo, DateTime Dia, string Descripcion, bool Activo, bool Destac, int id)
         {
 
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             Consulta.Parameters.AddWithValue("@Nomb", nombre);
-            Consulta.CommandText = "sp_EditarAmigo";
+            Consulta.Parameters.AddWithValue("@idEve", IdTipEve);
+            Consulta.Parameters.AddWithValue("@idAmi", IdAmigo);
+            Consulta.Parameters.AddWithValue("@dia", Dia);
+            Consulta.Parameters.AddWithValue("@desc", Descripcion);
+            Consulta.Parameters.AddWithValue("@Act", Activo);
+            Consulta.Parameters.AddWithValue("@destac", Destac);
+            Consulta.CommandText = "sp_EditarEve";
             Consulta.Parameters.AddWithValue("@Id", id);
             Consulta.ExecuteNonQuery();
             desconectar(Conexion);
