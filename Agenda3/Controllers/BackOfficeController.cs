@@ -90,5 +90,8 @@ namespace Agenda3.Controllers
             ViewBag.ListarTipos = BD.ListarTipoEve();
             return View();
         }
+
+
+
     }
 }
