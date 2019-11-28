@@ -14,7 +14,7 @@ namespace Agenda3.Models
        
         private static SqlConnection Conectar()
         {
-            string connectionString = "Server=.;Database=Agenda3;User Id=alumno;Password=alumno1;";
+            string connectionString = "Server=.;Database=Agenda3;User Id=alumno;Password=alumno;";
             SqlConnection a = new SqlConnection(connectionString);
             a.Open();
             return a;
@@ -279,6 +279,16 @@ namespace Agenda3.Models
 
 
         //Rozen
+        public static void AgregarTipo(string nombre)
+        {
 
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.CommandText = "sp_InsertarTipo";
+            Consulta.Parameters.AddWithValue("@Nom", nombre);           
+            Consulta.ExecuteNonQuery();
+            desconectar(Conexion);
+        }
     }
 }
