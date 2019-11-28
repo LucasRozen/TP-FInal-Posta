@@ -82,6 +82,9 @@ namespace Agenda3.Controllers
         }
         public ActionResult EditoEvento(Evento eve, int id)
         {
+            ViewBag.ListarAmigo = BD.ListarAmigos();
+            ViewBag.ListarEve = BD.ListarTipoEve();
+            ViewBag.ListarTipos = BD.ListarTipoEve();
             BD.EditarEvento(eve.Nombre, eve.IdTipEve, eve.IdAmigo, eve.Dia, eve.Descripcion, eve.Activo, eve.Destac, id);
             return RedirectToAction("Eventos", "BackOffice");
         }
