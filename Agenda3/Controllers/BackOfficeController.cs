@@ -37,7 +37,7 @@ namespace Agenda3.Controllers
             return View();
         }
 
-
+        //AMIGOS
         public ActionResult AgregarAmigo()
         {
             ViewBag.ListarEve = BD.ListarTipoEve();
@@ -66,7 +66,7 @@ namespace Agenda3.Controllers
             return View();
         }
 
-
+        //EVENTOS
         public ActionResult AgregarEvento()
         {
             ViewBag.ListarAmigo = BD.ListarAmigos();
@@ -99,7 +99,7 @@ namespace Agenda3.Controllers
             return View();
         }
 
-
+        // TIPOS
         public ActionResult AgregarTipo()
         {
             ViewBag.ListarEve = BD.ListarTipoEve();
