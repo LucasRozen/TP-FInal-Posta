@@ -279,6 +279,16 @@ namespace Agenda3.Models
 
 
         //Rozen
+        public static void AgregarTipo(string nombre, bool activo)
+        {
 
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.CommandText = "sp_InsertarTipo";
+            Consulta.Parameters.AddWithValue("@Nom", nombre);           
+            Consulta.ExecuteNonQuery();
+            desconectar(Conexion);
+        }
     }
 }
