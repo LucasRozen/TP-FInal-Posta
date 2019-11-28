@@ -45,17 +45,17 @@ namespace Agenda3.Controllers
         public ActionResult InsertarAmigo(Amigos ami)
         {
             BD.AgregarAmigo(ami.Nombre, ami.Activo); 
-            return RedirectToAction("Amigos", "Home");
+            return RedirectToAction("Amigos", "BackOffice");
         }
         public ActionResult EliminarAmigo(int id)
         {
             BD.EliminarAmigo(id);
-            return RedirectToAction("Amigos", "Home");
+            return RedirectToAction("Amigos", "BackOffice");
         }
         public ActionResult EditarAmigo(Amigos ami, int id)
         {
             BD.EditarAmigo(ami.Nombre,id);
-            return RedirectToAction("Amigos", "Home");
+            return RedirectToAction("Amigos", "BackOffice");
         }
         public ActionResult EditoAmigo()
         {
@@ -72,17 +72,17 @@ namespace Agenda3.Controllers
         public ActionResult InsertarEvento(Amigos ami)
         {
             BD.AgregarAmigo(ami.Nombre, ami.Activo);
-            return RedirectToAction("Amigos", "Home");
+            return RedirectToAction("Eventos", "BackOffice");
         }
         public ActionResult EliminarEvento(int id)
         {
             BD.EliminarAmigo(id);
-            return RedirectToAction("Amigos", "Home");
+            return RedirectToAction("Eventos", "BackOffice");
         }
         public ActionResult EditarEvento(Amigos ami, int id)
         {
             BD.EditarAmigo(ami.Nombre, id);
-            return RedirectToAction("Amigos", "Home");
+            return RedirectToAction("Eventos", "BackOffice");
         }
         public ActionResult EditoEvento()
         {
