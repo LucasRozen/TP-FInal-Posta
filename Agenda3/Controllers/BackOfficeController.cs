@@ -90,8 +90,18 @@ namespace Agenda3.Controllers
             ViewBag.ListarTipos = BD.ListarTipoEve();
             return View();
         }
-
-
+        public ActionResult AgregarTipo()
+        {
+            ViewBag.ListarEve = BD.ListarTipoEve();
+            ViewBag.ListarTipos = BD.ListarTipoEve();
+            return View();
+        }
+        public ActionResult InsertarTipo()
+        {
+            ViewBag.ListarEve = BD.ListarTipoEve();
+            ViewBag.ListarTipos = BD.ListarTipoEve();
+            return View();
+        }
 
     }
 }
