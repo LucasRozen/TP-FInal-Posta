@@ -184,8 +184,8 @@ namespace Agenda3.Models
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             Consulta.Parameters.AddWithValue("@Nomb", nombre);
-            Consulta.CommandText = "sp_EditarAmigo";
             Consulta.Parameters.AddWithValue("@Id", id);
+            Consulta.CommandText = "sp_EditarAmigo";
             Consulta.ExecuteNonQuery();
             desconectar(Conexion);
         }
