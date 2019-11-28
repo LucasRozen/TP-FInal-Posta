@@ -36,6 +36,8 @@ namespace Agenda3.Controllers
             ViewBag.ListarTipos=BD.ListarTipoEve();
             return View();
         }
+
+
         public ActionResult AgregarAmigo()
         {
             ViewBag.ListarEve = BD.ListarTipoEve();
@@ -63,6 +65,8 @@ namespace Agenda3.Controllers
             ViewBag.ListarTipos = BD.ListarTipoEve();
             return View();
         }
+
+
         public ActionResult AgregarEvento()
         {
             ViewBag.ListarAmigo = BD.ListarAmigos();
@@ -94,6 +98,8 @@ namespace Agenda3.Controllers
             ViewBag.ListarTipos = BD.ListarTipoEve();
             return View();
         }
+
+
         public ActionResult AgregarTipo()
         {
             ViewBag.ListarEve = BD.ListarTipoEve();
@@ -105,11 +111,21 @@ namespace Agenda3.Controllers
             BD.AgregarTipo(tip.TipEve);
             return RedirectToAction("TiposEve", "BackOffice");
         }
-        public ActionResult EditoEventos()
+        public ActionResult EliminarTipo(int id)
+        {
+            BD.EliminarTipo(id);
+            return RedirectToAction("TiposEve", "BackOffice");
+        }
+        public ActionResult EditoTipos()
         {
             return View();
         }
-            
+        public ActionResult EditarTipo()
+        {
+            ViewBag.ListarEve = BD.ListarTipoEve();
+            ViewBag.ListarTipos = BD.ListarTipoEve();
+            return View();
+        }
 
     }
 }
