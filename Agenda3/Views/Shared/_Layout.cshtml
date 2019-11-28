@@ -1,5 +1,6 @@
 ﻿@using Agenda3.Models
 <!DOCTYPE html>
+
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -10,32 +11,82 @@
     <title>@ViewBag.Title </title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+ 
+    <style type="text/css">
+
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #header {
+            margin: auto;
+           max-width:unset;
+            font-family: 'Rubik', sans-serif;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        .nav > li {
+            float:unset;
+        }
+
+        .nav li a {
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 12px;
+            display: block;
+        }
+
+            .nav li a:hover {
+                background-color: #434343;
+            }
+
+        .nav li ul {
+            display: none;
+            position: absolute;
+            min-width: 140px;
+        }
+
+        .nav li:hover > ul {
+            display: block;
+        }
+
+        .nav li ul li {
+            /* position: relative;*/
+        }
+
+            .nav li ul li ul {
+                right: -140px;
+                top: 0px;
+            }
+    </style>
 </head>
 <body>
-    <header ;>
-        <nav class="navegacion">
-            <ul class="menu" >
-                <li><a href='@Url.Action("Index","Home")'>Inicio</a></li>
-                <li>
-                    <a href="#">Categorias</a>
-                    <ul class="submenu">
+    <div id="header">
+        <ul class="nav">
+            <li><a href='@Url.Action("Index","Home")'>Inicio</a></li>
+            <li>
 
-                        @foreach (TiposEve tip in ViewBag.ListarEve)
-                        {
-                            <li><a href='@Url.Action("EventosXCategoria","Home", new { IdCategoria =tip.IdTipEve, NombreTipo=tip.TipEve})'>@tip.TipEve</a></li>
-                        }
+                <a href="#">Categorias</a>
+                <ul>
 
+                    @foreach (TiposEve tip in ViewBag.ListarEve)
+                    {
+                        <li><a href='@Url.Action("EventosXCategoria","Home", new { IdCategoria =tip.IdTipEve, NombreTipo=tip.TipEve})'>@tip.TipEve</a></li>
+                    }
 
-                    </ul>
-                </li>
-                <li><a href='@Url.Action("Amigos","Home")'>Amigos</a></li>
-                <li><a href='@Url.Action("Index","BackOffice")'>Editar</a></li>
+                </ul>
+            </li>
+            <li><a href='@Url.Action("Amigos","Home")'>Amigos</a></li>
+            <li><a href='@Url.Action("Index","BackOffice")'>Editar</a></li>
 
-            </ul>
-        </nav>
-    </header>
+        </ul>
 
-
+    </div>
     <div class="container body-content">
         @RenderBody()
 
