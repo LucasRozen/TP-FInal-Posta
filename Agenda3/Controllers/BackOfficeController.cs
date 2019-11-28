@@ -77,12 +77,12 @@ namespace Agenda3.Controllers
         }
         public ActionResult EliminarEvento(int id)
         {
-            BD.EliminarAmigo(id);
+            BD.EliminarEvento(id);
             return RedirectToAction("Eventos", "BackOffice");
         }
-        public ActionResult EditarEvento(Amigos ami, int id)
+        public ActionResult EditarEvento(Evento eve, int id)
         {
-            BD.EditarAmigo(ami.Nombre, id);
+            BD.EditarEvento(eve.Nombre, eve.IdTipEve, eve.IdAmigo, eve.Dia, eve.Descripcion, eve.Activo, eve.Destac, id);
             return RedirectToAction("Eventos", "BackOffice");
         }
         public ActionResult EditoEvento()
