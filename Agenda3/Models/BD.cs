@@ -14,7 +14,7 @@ namespace Agenda3.Models
         //aaaaaa
         private static SqlConnection Conectar()
         {
-            string connectionString = "Server=.;Database=Agenda3;User Id=alumno;Password=alumno1;";
+            string connectionString = "Server=.;Database=Agenda3;User Id=alumno;Password=alumno;";
             SqlConnection a = new SqlConnection(connectionString);
             a.Open();
             return a;
@@ -230,6 +230,14 @@ namespace Agenda3.Models
             desconectar(Conexion);
             return ListaEventos;
         }
+
+
+
+
+
+
+
+        //Rozen
 
     }
 }

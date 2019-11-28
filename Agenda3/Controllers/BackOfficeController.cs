@@ -95,13 +95,13 @@ namespace Agenda3.Controllers
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListarTipos = BD.ListarTipoEve();
             return View();
-        }
-        public ActionResult InsertarTipo()
+        }        
+        public ActionResult InsertarTipo(TiposEve tip)
         {
-            ViewBag.ListarEve = BD.ListarTipoEve();
-            ViewBag.ListarTipos = BD.ListarTipoEve();
-            return View();
+            BD.AgregarAmigo(tip.Nombre, tip.Activo);
+            return RedirectToAction("TiposEve", "BackOffice");
         }
+        
 
     }
 }
