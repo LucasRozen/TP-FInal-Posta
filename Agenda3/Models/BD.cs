@@ -14,7 +14,7 @@ namespace Agenda3.Models
        
         private static SqlConnection Conectar()
         {
-            string connectionString = "Server=.;Database=Agenda3;User Id=alumno;Password=alumno;";
+            string connectionString = "Server=.;Database=Agenda3;User Id=alumno;Password=alumno1;";
             SqlConnection a = new SqlConnection(connectionString);
             a.Open();
             return a;
@@ -238,7 +238,7 @@ namespace Agenda3.Models
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            Consulta.CommandText = "sp_InsertarAmigo";
+            Consulta.CommandText = "sp_InsertarEve";
             Consulta.Parameters.AddWithValue("@NomE", nombre);
             Consulta.Parameters.AddWithValue("@TipoE", IdTipEve);
             Consulta.Parameters.AddWithValue("@IdA", IdAmigo);
