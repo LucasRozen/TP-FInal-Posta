@@ -11,10 +11,10 @@
     <ul>
         @foreach (Evento UnEvento in ViewBag.ListarEventos)
         {
-            if (UnEvento.Destac == true)
+                       if (UnEvento.Destac == true)
             {
         <h2>@UnEvento.Nombre</h2>
-        <h3><a href='@Url.Action("DetalleEve","Home", new { idEvento = UnEvento.IdEve, Nombre = UnEvento.Nombre})'>Detalle del Evento---AQUI</a></h3>
+        <h3><a href='@Url.Action("DetalleEve","Home", new { idEvento = UnEvento.IdEve, Nombre = UnEvento.Nombre})'>Detalles </a></h3>
                 
                 
 
@@ -26,7 +26,7 @@
             if (UnEvento.Destac == false)
             {
                 <li>@UnEvento.Nombre</li>
-                <a href='@Url.Action("DetalleEve","Home", new { idEvento = UnEvento.IdEve, Nombre = UnEvento.Nombre})'>Detalle del Evento---AQUI</a>
+                <a href='@Url.Action("DetalleEve","Home", new { idEvento = UnEvento.IdEve, Nombre = UnEvento.Nombre})'>Detalles </a>
             }
         }
 
