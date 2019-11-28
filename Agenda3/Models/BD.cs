@@ -231,10 +231,44 @@ namespace Agenda3.Models
             return ListaEventos;
         }
 
+        public static void AgregarEvento(string nombre, bool activo)
+        {
+
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.CommandText = "sp_InsertarAmigo";
+            Consulta.Parameters.AddWithValue("@NomA", nombre);
+            Consulta.Parameters.AddWithValue("@Act", activo);
+            Consulta.ExecuteNonQuery();
+            desconectar(Conexion);
+        }
+
+        public static void EliminarEvento(int id)
+        {
+
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.CommandText = "sp_EliminarAmigo";
+            Consulta.Parameters.AddWithValue("@NomA", id);
+            Consulta.ExecuteNonQuery();
+            desconectar(Conexion);
+        }
+        public static void EditarEvento(string nombre, int id)
+        {
+
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.Parameters.AddWithValue("@Nomb", nombre);
+            Consulta.CommandText = "sp_EditarAmigo";
+            Consulta.Parameters.AddWithValue("@Id", id);
+            Consulta.ExecuteNonQuery();
+            desconectar(Conexion);
+        }
 
 
-        
-        
 
 
 
