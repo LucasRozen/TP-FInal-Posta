@@ -13,9 +13,10 @@
         {
             if (UnEvento.Destac == true)
             {
-                <li>@UnEvento.Nombre</li>
-
-                <a href='@Url.Action("DetalleEve","Home", new { idEvento = UnEvento.IdEve, Nombre = UnEvento.Nombre})'>Detalle del Evento---AQUI</a>
+        <h2>@UnEvento.Nombre</h2>
+        <h3><a href='@Url.Action("DetalleEve","Home", new { idEvento = UnEvento.IdEve, Nombre = UnEvento.Nombre})'>Detalle del Evento---AQUI</a></h3>
+                
+                
 
             }
 
