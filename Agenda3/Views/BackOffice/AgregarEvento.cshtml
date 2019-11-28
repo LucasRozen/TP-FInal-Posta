@@ -1,0 +1,21 @@
+﻿@using Agenda3.Models
+@model Evento
+@{
+    ViewBag.Title = "AgregarEvento";
+}
+
+@using (Html.BeginForm("InsertarEvento", "Backoffice", FormMethod.Post))
+{
+
+    <p>Nombre:</p> @Html.TextBoxFor(model => model.Nombre) <br />
+    <p>Evento:</p> @Html.TextBoxFor(model => model.IdTipEve) <br />
+    <p>Amigo:</p> @Html.TextBoxFor(model => model.IdAmigo) <br />
+    <p>Fecha:</p> @Html.TextBoxFor(model => model.Dia) <br />
+    <p>Descripcion:</p> @Html.TextBoxFor(model => model.Descripcion) <br />
+   
+    
+    <p>Activo:</p> @Html.CheckBoxFor(model => model.Activo) <br />
+    <p>Activo:</p> @Html.CheckBoxFor(model => model.Destac) <br />
+    <input type="submit" value="Enviar" />
+}
+

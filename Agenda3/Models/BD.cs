@@ -14,7 +14,7 @@ namespace Agenda3.Models
        
         private static SqlConnection Conectar()
         {
-            string connectionString = "Server=.;Database=Agenda3;User Id=alumno;Password=alumno;";
+            string connectionString = "Server=.;Database=Agenda3;User Id=alumno;Password=alumno1;";
             SqlConnection a = new SqlConnection(connectionString);
             a.Open();
             return a;
@@ -38,7 +38,8 @@ namespace Agenda3.Models
             {
                 int idTipEve = Convert.ToInt32(Lector["IdTipoEve"]);
                 string TipEve = Lector["NombreT"].ToString();
-                TiposEve UnEve = new TiposEve(idTipEve, TipEve);
+                bool Activo= Convert.ToBoolean(Lector["Activo"]);
+                TiposEve UnEve = new TiposEve(idTipEve, TipEve, Activo);
                 Lista.Add(UnEve);
             }
             desconectar(Conexion);

@@ -261,7 +261,7 @@
     <Content Include="Views\BackOffice\AgregarAmigo.cshtml" />
     <Content Include="Views\BackOffice\EditoAmigo.cshtml" />
     <Content Include="Views\BackOffice\AgregarTipo.cshtml" />
-    <Content Include="Views\BackOffice\EditoEventos.cshtml" />
+    <Content Include="Views\BackOffice\AgregarEvento.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

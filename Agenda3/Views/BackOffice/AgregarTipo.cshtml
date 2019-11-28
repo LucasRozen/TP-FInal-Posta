@@ -1,7 +1,11 @@
-﻿
-@{
-    ViewBag.Title = "AgregarTipo";
+﻿@using Agenda3.Models
+@model TiposEve
+
+
+@using (Html.BeginForm("InsertarTipo", "Backoffice", FormMethod.Post))
+{
+
+    <p>Nombre:</p> @Html.TextBoxFor(model => model.TipEve) <br />
+    
+    <input type="submit" value="Enviar" />
 }
-
-<h2>AgregarTipo</h2>
-
