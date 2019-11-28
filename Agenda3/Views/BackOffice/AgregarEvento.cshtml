@@ -8,12 +8,14 @@
 {
 
     <p>Nombre:</p> @Html.TextBoxFor(model => model.Nombre) <br />
-    <p>Evento:</p> @Html.TextBoxFor(model => model.IdTEve) <br />
-    <p>Amigo:</p> @Html.TextBoxFor(model => model.Amigo) <br />
-
-
-
+    <p>Evento:</p> @Html.TextBoxFor(model => model.IdTipEve) <br />
+    <p>Amigo:</p> @Html.TextBoxFor(model => model.IdAmigo) <br />
+    <p>Fecha:</p> @Html.TextBoxFor(model => model.Dia) <br />
+    <p>Descripcion:</p> @Html.TextBoxFor(model => model.Descripcion) <br />
+   
+    
     <p>Activo:</p> @Html.CheckBoxFor(model => model.Activo) <br />
+    <p>Activo:</p> @Html.CheckBoxFor(model => model.Destac) <br />
     <input type="submit" value="Enviar" />
 }
 
