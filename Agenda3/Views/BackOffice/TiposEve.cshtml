@@ -8,7 +8,8 @@
     @foreach (TiposEve UnTipoEve in ViewBag.ListarTipos)
     {
         <li>@UnTipoEve.TipEve</li>
-        <a href="@Url.Action()">Editar</a>
+        <a href="@Url.Action("EditoTipo", "BackOffice", new { id = UnTipoEve.IdTipEve })">Editar</a>
+        <a href="@Url.Action("EliminarTipo", "BackOffice", new { id = UnTipoEve.IdTipEve })">Eliminar</a>
     }
 </ul>
 <a href="@Url.Action("AgregarTipo", "BackOffice")">Agregar Tipo</a>

@@ -1,0 +1,10 @@
+﻿@using Agenda3.Models
+@model TiposEve
+
+
+@using (Html.BeginForm("EditarTipo", "Backoffice", FormMethod.Post))
+{
+
+    <p>Tipo:</p> @Html.TextBoxFor(model => model.TipEve) <br />
+    <input type="submit" value="Enviar" />
+}
