@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [Agenda3]    Script Date: 28/11/2019 10:18:30 ******/
+/****** Object:  Database [Agenda3]    Script Date: 28/11/2019 11:04:55 ******/
 CREATE DATABASE [Agenda3]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -99,10 +99,10 @@ ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET QUERY_OPTIMIZER_HOTFIXES =
 GO
 USE [Agenda3]
 GO
-/****** Object:  User [alumno]    Script Date: 28/11/2019 10:18:31 ******/
+/****** Object:  User [alumno]    Script Date: 28/11/2019 11:04:55 ******/
 CREATE USER [alumno] FOR LOGIN [alumno] WITH DEFAULT_SCHEMA=[dbo]
 GO
-/****** Object:  Table [dbo].[Amigos]    Script Date: 28/11/2019 10:18:31 ******/
+/****** Object:  Table [dbo].[Amigos]    Script Date: 28/11/2019 11:04:55 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -117,7 +117,7 @@ CREATE TABLE [dbo].[Amigos](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Eventos]    Script Date: 28/11/2019 10:18:31 ******/
+/****** Object:  Table [dbo].[Eventos]    Script Date: 28/11/2019 11:04:55 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -133,7 +133,7 @@ CREATE TABLE [dbo].[Eventos](
 	[Destac] [bit] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TiposEve]    Script Date: 28/11/2019 10:18:31 ******/
+/****** Object:  Table [dbo].[TiposEve]    Script Date: 28/11/2019 11:04:55 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -141,7 +141,7 @@ GO
 CREATE TABLE [dbo].[TiposEve](
 	[IdTipoEve] [int] IDENTITY(1,1) NOT NULL,
 	[NombreT] [varchar](100) NOT NULL,
-	[Activo] [bit] NOT NULL,
+	[Activo] [bit] NULL,
  CONSTRAINT [PK_TiposEve] PRIMARY KEY CLUSTERED 
 (
 	[IdTipoEve] ASC
@@ -198,9 +198,11 @@ INSERT [dbo].[TiposEve] ([IdTipoEve], [NombreT], [Activo]) VALUES (8, N'Estudiar
 GO
 INSERT [dbo].[TiposEve] ([IdTipoEve], [NombreT], [Activo]) VALUES (9, N'Ver', 1)
 GO
+INSERT [dbo].[TiposEve] ([IdTipoEve], [NombreT], [Activo]) VALUES (10, N'deportivo', 1)
+GO
 SET IDENTITY_INSERT [dbo].[TiposEve] OFF
 GO
-/****** Object:  StoredProcedure [dbo].[sp_EditarAmigo]    Script Date: 28/11/2019 10:18:31 ******/
+/****** Object:  StoredProcedure [dbo].[sp_EditarAmigo]    Script Date: 28/11/2019 11:04:56 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -221,7 +223,7 @@ BEGIN
 	WHERE IdAmigo = @Id;
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_EliminarAmigo]    Script Date: 28/11/2019 10:18:31 ******/
+/****** Object:  StoredProcedure [dbo].[sp_EliminarAmigo]    Script Date: 28/11/2019 11:04:56 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -241,7 +243,7 @@ BEGIN
     
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_InsertarAmigo]    Script Date: 28/11/2019 10:18:31 ******/
+/****** Object:  StoredProcedure [dbo].[sp_InsertarAmigo]    Script Date: 28/11/2019 11:04:56 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -259,7 +261,7 @@ BEGIN
    Insert into Amigos (Nombre,Activo) Values(@NomA,@Act)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_InsertarEve]    Script Date: 28/11/2019 10:18:31 ******/
+/****** Object:  StoredProcedure [dbo].[sp_InsertarEve]    Script Date: 28/11/2019 11:04:56 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -283,7 +285,7 @@ BEGIN
 	Insert into Eventos(Nombre,TipoEve,IdAmigo,Dia,Descripcion,Activo,Destac) Values(@NomE, @TipoE,@IdA,@dia,@desc,@activo,@destac)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_InsertarTipo]    Script Date: 28/11/2019 10:18:31 ******/
+/****** Object:  StoredProcedure [dbo].[sp_InsertarTipo]    Script Date: 28/11/2019 11:04:56 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -295,13 +297,13 @@ CREATE PROCEDURE [dbo].[sp_InsertarTipo]
 as
 BEGIN
 	
-	Insert into TiposEve(NombreT) Values(@Nom)
-	Update  Eventos 
+	Insert into TiposEve(NombreT) Values(@Nom) 
+	Update  TiposEve
 	SET Activo = 1 
-	WHERE Nombre = @Nom;
+	WHERE NombreT = @Nom;
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_TraerAmigos]    Script Date: 28/11/2019 10:18:31 ******/
+/****** Object:  StoredProcedure [dbo].[sp_TraerAmigos]    Script Date: 28/11/2019 11:04:56 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -319,7 +321,7 @@ BEGIN
 	SELECT* from Amigos
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_TraerEve]    Script Date: 28/11/2019 10:18:31 ******/
+/****** Object:  StoredProcedure [dbo].[sp_TraerEve]    Script Date: 28/11/2019 11:04:56 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -336,7 +338,7 @@ BEGIN
 	SELECT * FROM Eventos
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_TraerTipos]    Script Date: 28/11/2019 10:18:31 ******/
+/****** Object:  StoredProcedure [dbo].[sp_TraerTipos]    Script Date: 28/11/2019 11:04:56 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -352,7 +354,7 @@ BEGIN
 	SELECT * From TiposEve
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_TraerUnEven]    Script Date: 28/11/2019 10:18:31 ******/
+/****** Object:  StoredProcedure [dbo].[sp_TraerUnEven]    Script Date: 28/11/2019 11:04:56 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -370,7 +372,7 @@ BEGIN
 	SELECT * FROM Eventos WHERE IdEve = @id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[sp_TraerxTipo]    Script Date: 28/11/2019 10:18:31 ******/
+/****** Object:  StoredProcedure [dbo].[sp_TraerxTipo]    Script Date: 28/11/2019 11:04:56 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
