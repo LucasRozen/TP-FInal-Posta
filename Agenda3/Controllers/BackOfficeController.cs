@@ -128,7 +128,7 @@ namespace Agenda3.Controllers
         {
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListarTipos = BD.ListarTipoEve();
-            return View();
+            return RedirectToAction("TiposEve", "BackOffice");
         }
 
     }
