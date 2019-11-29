@@ -8,15 +8,11 @@ using Agenda3.Models;
 namespace Agenda3.Controllers
 {
     public class BackOfficeController : Controller
-    {       
-        void listaramigos()
+    {                                     
+        public ActionResult Index()
         {
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListaAmigos = BD.ListarAmigos();
-        }     
-        public ActionResult Index()
-        {
-            listaramigos();
             return View();
         }
         public ActionResult Eventos()
@@ -27,7 +23,8 @@ namespace Agenda3.Controllers
         }
         public ActionResult Amigos()
         {
-            listaramigos();
+            ViewBag.ListarEve = BD.ListarTipoEve();
+            ViewBag.ListaAmigos = BD.ListarAmigos();
             return View();
         }
         public ActionResult TiposEve()
@@ -61,6 +58,8 @@ namespace Agenda3.Controllers
         }
         public ActionResult EditoAmigo(int id)
         {
+            ViewBag.ListarEve = BD.ListarTipoEve();
+            ViewBag.ListarTipos = BD.ListarTipoEve();
             List<Amigos> ami = BD.ListarAmigos();
             Amigos am = new Amigos();
             foreach(Amigos a in ami)
@@ -69,9 +68,7 @@ namespace Agenda3.Controllers
                 {
                     am = a;
                 }
-            }
-            ViewBag.ListarEve = BD.ListarTipoEve();
-            ViewBag.ListarTipos = BD.ListarTipoEve();
+            }           
             return View(am);
         }
 
