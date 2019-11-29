@@ -1,100 +1,100 @@
 ﻿@using Agenda3.Models
 <!DOCTYPE html>
-
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="~/Content/estilos/Barra.css">
-
     <title>@ViewBag.Title </title>
-    @Styles.Render("~/Content/css")
+    
     @Scripts.Render("~/bundles/modernizr")
- 
-    <style type="text/css">
-
-        * {
-            margin: 0px;
-            padding: 0px;
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
         }
 
-        #header {
-            margin: auto;
-           max-width:unset;
-            font-family: 'Rubik', sans-serif;
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
         }
 
-        ul, ol {
-            list-style: none;
-        }
-
-        .nav > li {
-            float:unset;
-        }
-
-        .nav li a {
-            background-color: #000;
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 12px;
-            display: block;
-        }
-
-            .nav li a:hover {
-                background-color: #434343;
+            .navbar a {
+                float: left;
+                font-size: 16px;
+                color: whitesmoke;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
             }
 
-        .nav li ul {
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+            .dropdown .dropbtn {
+                font-size: 16px;
+                border: none;
+                outline: none;
+                color: white;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit;
+                margin: 0;
+            }
+
+            .navbar a:hover, .dropdown:hover .dropbtn {
+                background-color: cornflowerblue;
+            }
+
+        .dropdown-content {
             display: none;
             position: absolute;
-            min-width: 140px;
+            background-color: cornflowerblue;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
         }
 
-        .nav li:hover > ul {
+            .dropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #ddd;
+                }
+
+        .dropdown:hover .dropdown-content {
             display: block;
         }
-
-        .nav li ul li {
-            /* position: relative;*/
-        }
-
-            .nav li ul li ul {
-                right: -140px;
-                top: 0px;
-            }
     </style>
 </head>
 <body>
-    <div id="header">
-        <ul class="nav">
-            <li><a href='@Url.Action("Index","Home")'>Inicio</a></li>
-            <li>
 
-                <a href="#">Categorias</a>
-                <ul>
-
+    <div class="navbar">
+        <a href='@Url.Action("Index","Home")'>Inicio</a>
+        <a href='@Url.Action("Amigos","Home")'>Amigos</a>
+        <a href='@Url.Action("Index","BackOffice")'>Editar</a>
+            <div class="dropdown">
+                <button class="dropbtn">
+                    Categorias
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
                     @foreach (TiposEve tip in ViewBag.ListarEve)
                     {
-                        <li><a href='@Url.Action("EventosXCategoria","Home", new { IdCategoria =tip.IdTipEve, NombreTipo=tip.TipEve})'>@tip.TipEve</a></li>
+                        <a href='@Url.Action("EventosXCategoria","Home", new { IdCategoria =tip.IdTipEve, NombreTipo=tip.TipEve})'>@tip.TipEve</a>
                     }
-
-                </ul>
-            </li>
-            <li><a href='@Url.Action("Amigos","Home")'>Amigos</a></li>
-            <li><a href='@Url.Action("Index","BackOffice")'>Editar</a></li>
-
-        </ul>
-
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-
-
+                </div>
+            </div>
     </div>
 
+    
+    @RenderBody()
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
 </body>
 </html>
