@@ -54,16 +54,25 @@ namespace Agenda3.Controllers
             BD.EliminarAmigo(id);
             return RedirectToAction("Amigos", "BackOffice");
         }
-        public ActionResult EditarAmigo(Amigos ami, int id)
+        public ActionResult EditarAmigo(Amigos ami)
         {
-            BD.EditarAmigo(ami.Nombre,id);
+            BD.EditarAmigo(ami.Nombre, ami.IdAmigo);
             return RedirectToAction("Amigos", "BackOffice");
         }
-        public ActionResult EditoAmigo()
+        public ActionResult EditoAmigo(int id)
         {
+            List<Amigos> ami = BD.ListarAmigos();
+            Amigos am = new Amigos();
+            foreach(Amigos a in ami)
+            {
+                if(a.IdAmigo == id)
+                {
+                    am = a;
+                }
+            }
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListarTipos = BD.ListarTipoEve();
-            return View();
+            return View(am);
         }
 
         //EVENTOS
