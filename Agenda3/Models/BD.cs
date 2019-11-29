@@ -9,9 +9,9 @@ using System.Web;
 
 namespace Agenda3.Models
 {
-    public class BD
+    public static class BD
     {
-       
+        
         private static SqlConnection Conectar()
         {
             string connectionString = "Server=.;Database=Agenda3;User Id=alumno;Password=alumno;";
