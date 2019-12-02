@@ -91,12 +91,12 @@ namespace Agenda3.Controllers
             BD.EliminarEvento(id);
             return RedirectToAction("Eventos", "BackOffice");
         }
-        public ActionResult EditoEvento(Evento eve, int id)
+        public ActionResult EditoEvento(Evento eve)
         {
             ViewBag.ListarAmigo = BD.ListarAmigos();
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListarTipos = BD.ListarTipoEve();
-            BD.EditarEvento(eve.Nombre, eve.IdTipEve, eve.IdAmigo, eve.Dia, eve.Descripcion, eve.Activo, eve.Destac, id);
+            BD.EditarEvento(eve.Nombre, eve.IdTipEve, eve.IdAmigo, eve.Dia, eve.Descripcion, eve.Activo, eve.Destac, eve.IdEve);
             return RedirectToAction("Eventos", "BackOffice");
         }
         public ActionResult EditarEvento(int id)
