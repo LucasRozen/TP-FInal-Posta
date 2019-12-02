@@ -98,11 +98,20 @@ namespace Agenda3.Controllers
             BD.EditarEvento(eve.Nombre, eve.IdTipEve, eve.IdAmigo, eve.Dia, eve.Descripcion, eve.Activo, eve.Destac, id);
             return RedirectToAction("Eventos", "BackOffice");
         }
-        public ActionResult EditarEvento()
+        public ActionResult EditarEvento(int id)
         {
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListarTipos = BD.ListarTipoEve();
-            return View();
+            List<Evento> Eve = BD.ListarEventos();
+            Evento ev = new Evento();
+            foreach (Evento a in Eve)
+            {
+                if (a.IdEve == id)
+                {
+                    ev = a;
+                }
+            }
+            return View(ev);
         }
 
         // TIPOS
