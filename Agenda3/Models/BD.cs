@@ -266,12 +266,12 @@ namespace Agenda3.Models
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            Consulta.Parameters.AddWithValue("@Nomb", nombre);
-            Consulta.Parameters.AddWithValue("@idEve", IdTipEve);
-            Consulta.Parameters.AddWithValue("@idAmi", IdAmigo);
+            Consulta.Parameters.AddWithValue("@nom", nombre);
+            Consulta.Parameters.AddWithValue("@idtipo", IdTipEve);
+            Consulta.Parameters.AddWithValue("@idamigo", IdAmigo);
             Consulta.Parameters.AddWithValue("@dia", Dia);
             Consulta.Parameters.AddWithValue("@desc", Descripcion);
-            Consulta.Parameters.AddWithValue("@Act", Activo);
+            Consulta.Parameters.AddWithValue("@act", Activo);
             Consulta.Parameters.AddWithValue("@destac", Destac);
             Consulta.CommandText = "sp_EditarEve";
             Consulta.Parameters.AddWithValue("@Id", id);
