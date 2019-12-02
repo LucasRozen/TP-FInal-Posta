@@ -100,6 +100,7 @@ namespace Agenda3.Controllers
         }
         public ActionResult EditarEvento(int id)
         {
+            ViewBag.ListaAmigos = BD.ListarAmigos();
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListarTipos = BD.ListarTipoEve();
             List<Evento> Eve = BD.ListarEventos();
