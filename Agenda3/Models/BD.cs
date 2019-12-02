@@ -270,7 +270,6 @@ namespace Agenda3.Models
             Consulta.Parameters.AddWithValue("@idamigo", IdAmigo);
             Consulta.Parameters.AddWithValue("@dia", Dia);
             Consulta.Parameters.AddWithValue("@desc", Descripcion);
-            
             Consulta.Parameters.AddWithValue("@destac", Destac);
             Consulta.CommandText = "sp_EditarEve";
             Consulta.Parameters.AddWithValue("@Id", id);
