@@ -154,7 +154,7 @@ namespace Agenda3.Models
              desconectar(Conexion);
             return ListaAmigos;
         }
-        public static void AgregarAmigo(string nombre,bool activo)
+        public static void AgregarAmigo(string nombre)
         {
             
             SqlConnection Conexion = Conectar();
@@ -162,7 +162,6 @@ namespace Agenda3.Models
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             Consulta.CommandText = "sp_InsertarAmigo";
             Consulta.Parameters.AddWithValue("@NomA", nombre);
-            Consulta.Parameters.AddWithValue("@Act", activo);
             Consulta.ExecuteNonQuery();
             desconectar(Conexion);
         }
@@ -231,7 +230,7 @@ namespace Agenda3.Models
             return ListaEventos;
         }
 
-        public static void AgregarEvento(string nombre,int IdTipEve, int IdAmigo, DateTime Dia, string Descripcion, bool Activo, bool Destac)
+        public static void AgregarEvento(string nombre,int IdTipEve, int IdAmigo, DateTime Dia, string Descripcion,  bool Destac)
         {
 
             SqlConnection Conexion = Conectar();
@@ -243,7 +242,7 @@ namespace Agenda3.Models
             Consulta.Parameters.AddWithValue("@IdA", IdAmigo);
             Consulta.Parameters.AddWithValue("@dia", Dia);
             Consulta.Parameters.AddWithValue("@desc", Descripcion);
-            Consulta.Parameters.AddWithValue("@activo", Activo);
+           
             Consulta.Parameters.AddWithValue("@destac", Destac); 
             Consulta.ExecuteNonQuery();
             desconectar(Conexion);

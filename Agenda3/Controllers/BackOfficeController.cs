@@ -43,7 +43,7 @@ namespace Agenda3.Controllers
         }
         public ActionResult InsertarAmigo(Amigos ami)
         {
-            BD.AgregarAmigo(ami.Nombre, ami.Activo); 
+            BD.AgregarAmigo(ami.Nombre); 
             return RedirectToAction("Amigos", "BackOffice");
         }
         public ActionResult EliminarAmigo(int id)
@@ -83,7 +83,7 @@ namespace Agenda3.Controllers
         }
         public ActionResult InsertarEvento(Evento eve)
         {
-            BD.AgregarEvento(eve.Nombre,eve.IdTipEve, eve.IdAmigo,eve.Dia, eve.Descripcion, eve.Activo, eve.Destac);
+            BD.AgregarEvento(eve.Nombre,eve.IdTipEve, eve.IdAmigo,eve.Dia, eve.Descripcion,  eve.Destac);
             return RedirectToAction("Eventos", "BackOffice");
         }
         public ActionResult EliminarEvento(int id)
