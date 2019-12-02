@@ -138,8 +138,17 @@ namespace Agenda3.Controllers
             ViewBag.ListarAmigo = BD.ListarAmigos();
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListarTipos = BD.ListarTipoEve();
+            List<TiposEve> lista = BD.ListarTipoEve();
+            TiposEve untipo = new TiposEve();
+            foreach (TiposEve a in lista)
+            {
+                if (a.IdTipEve == id)
+                {
+                    untipo = a;
+                }
+            }
             BD.EditarTipo(tps.TipEve, id);
-            return View();
+            return View(untipo);
         }
         public ActionResult EditarTipo()
         {

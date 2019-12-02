@@ -21,9 +21,9 @@ namespace Agenda3.Models
             
         }
 
-        public TiposEve(int idTipEve, string TipEve,bool Activo)
+        public TiposEve(int IdTipEve, string TipEve,bool Activo)
         {
-            _idTipEve = idTipEve;
+            _idTipEve = IdTipEve;
             _TipEve = TipEve;
             _Activo = Activo;
         }

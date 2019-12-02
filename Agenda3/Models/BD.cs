@@ -301,7 +301,7 @@ namespace Agenda3.Models
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            Consulta.Parameters.AddWithValue("@Nomb", nombre);
+            Consulta.Parameters.AddWithValue("@nom", nombre);
             Consulta.CommandText = "sp_EditarTipo";
             Consulta.Parameters.AddWithValue("@Id", id);
             Consulta.ExecuteNonQuery();
