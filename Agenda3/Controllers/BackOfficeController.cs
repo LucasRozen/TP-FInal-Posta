@@ -133,7 +133,7 @@ namespace Agenda3.Controllers
             BD.EliminarTipo(id);
             return RedirectToAction("TiposEve", "BackOffice");
         }
-        public ActionResult EditoTipos(TiposEve tps, int id)
+        public ActionResult EditoTipos(int id)
         {
             ViewBag.ListarAmigo = BD.ListarAmigos();
             ViewBag.ListarEve = BD.ListarTipoEve();
@@ -147,13 +147,14 @@ namespace Agenda3.Controllers
                     untipo = a;
                 }
             }
-            BD.EditarTipo(tps.TipEve, id);
+            
             return View(untipo);
         }
-        public ActionResult EditarTipo()
+        public ActionResult EditarTipo(TiposEve tps)
         {
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListarTipos = BD.ListarTipoEve();
+            BD.EditarTipo(tps.TipEve, tps.IdTipEve);
             return RedirectToAction("TiposEve", "BackOffice");
         }
 

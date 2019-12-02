@@ -4,7 +4,7 @@
 
 @using (Html.BeginForm("EditarTipo", "Backoffice", FormMethod.Post))
 {
-
+    @Html.HiddenFor(model => model.IdTipEve)
     <p>Tipo:</p> @Html.TextBoxFor(model => model.TipEve) <br />
     <input type="submit" value="Enviar" />
 }
