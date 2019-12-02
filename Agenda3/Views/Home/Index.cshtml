@@ -9,7 +9,7 @@
 </head>
 <body >
    
-    <ul>
+   
         @foreach (Evento UnEvento in ViewBag.ListarEventos)
         {
                        if (UnEvento.Destac == true)
@@ -22,16 +22,17 @@
             }
 
         }
-        @foreach (Evento UnEvento in ViewBag.ListarEventos)
-        {
-            if (UnEvento.Destac == false)
+        <ul>
+            @foreach (Evento UnEvento in ViewBag.ListarEventos)
             {
-                <li>@UnEvento.Nombre</li>
-                <a href='@Url.Action("DetalleEve","Home", new { idEvento = UnEvento.IdEve, Nombre = UnEvento.Nombre})'>Detalles </a>
+                if (UnEvento.Destac == false)
+                {
+                    <li>@UnEvento.Nombre</li>
+                    <a href='@Url.Action("DetalleEve","Home", new { idEvento = UnEvento.IdEve, Nombre = UnEvento.Nombre})'>Detalles </a>
+                }
             }
-        }
+        </ul>
 
-
-    </ul>
+   
 
 </body>
