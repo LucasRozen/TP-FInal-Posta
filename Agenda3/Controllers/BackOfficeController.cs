@@ -66,7 +66,8 @@ namespace Agenda3.Controllers
             {
                 if(a.IdAmigo == id)
                 {
-                    am = a;
+                    am.IdAmigo = a.IdAmigo;
+                    am.Nombre = a.Nombre;
                 }
             }           
             return View(am);
