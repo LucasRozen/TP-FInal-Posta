@@ -259,7 +259,7 @@ namespace Agenda3.Models
             Consulta.ExecuteNonQuery();
             desconectar(Conexion);
         }
-        public static void EditarEvento(string nombre, int IdTipEve, int IdAmigo, DateTime Dia, string Descripcion, bool Activo, bool Destac, int id)
+        public static void EditarEvento(string nombre, int IdTipEve, int IdAmigo, DateTime Dia, string Descripcion, bool Destac, int id)
         {
 
             SqlConnection Conexion = Conectar();
@@ -270,7 +270,6 @@ namespace Agenda3.Models
             Consulta.Parameters.AddWithValue("@idamigo", IdAmigo);
             Consulta.Parameters.AddWithValue("@dia", Dia);
             Consulta.Parameters.AddWithValue("@desc", Descripcion);
-            Consulta.Parameters.AddWithValue("@act", Activo);
             Consulta.Parameters.AddWithValue("@destac", Destac);
             Consulta.CommandText = "sp_EditarEve";
             Consulta.Parameters.AddWithValue("@Id", id);

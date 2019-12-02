@@ -96,7 +96,7 @@ namespace Agenda3.Controllers
             ViewBag.ListarAmigo = BD.ListarAmigos();
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListarTipos = BD.ListarTipoEve();
-            BD.EditarEvento(eve.Nombre, eve.IdTipEve, eve.IdAmigo, eve.Dia, eve.Descripcion, eve.Activo, eve.Destac, eve.IdEve);
+            BD.EditarEvento(eve.Nombre, eve.IdTipEve, eve.IdAmigo, eve.Dia, eve.Descripcion, eve.Destac, eve.IdEve);
             return RedirectToAction("Eventos", "BackOffice");
         }
         public ActionResult EditarEvento(int id)

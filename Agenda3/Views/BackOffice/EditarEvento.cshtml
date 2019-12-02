@@ -13,7 +13,7 @@
     <p>Descripcion:</p> @Html.TextBoxFor(model => model.Descripcion) <br />
 
 
-    <p>Activo:</p> @Html.CheckBoxFor(model => model.Activo) <br />
+    @Html.HiddenFor(model => model.Activo)
     <p>Destacada:</p> @Html.CheckBoxFor(model => model.Destac) <br />
     <input type="submit" value="Enviar" />
 }
