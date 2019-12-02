@@ -178,8 +178,7 @@ namespace Agenda3.Models
             desconectar(Conexion);
         }
         public static void EditarAmigo(string nombre, int id)
-        {
-
+        {            
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
