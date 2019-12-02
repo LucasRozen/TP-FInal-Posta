@@ -2,9 +2,10 @@
 @model Evento
 
 
-@using (Html.BeginForm("EditarEvento", "Backoffice", FormMethod.Post))
-{
 
+@using (Html.BeginForm("EditoEvento", "Backoffice", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.IdEve)
     <p>Nombre:</p> @Html.TextBoxFor(model => model.Nombre) <br />
     <p>Evento:</p> @Html.DropDownListFor(model => model.IdTipEve, new SelectList(ViewBag.ListarTipos, "idTipEve", "TipEve")) <br />
     <p>Amigo:</p> @Html.DropDownListFor(model => model.IdAmigo, new SelectList(ViewBag.ListarAmigo, "IdAmigo", "Nombre")) <br />
