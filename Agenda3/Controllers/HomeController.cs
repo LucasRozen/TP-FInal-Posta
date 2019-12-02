@@ -30,6 +30,8 @@ namespace Agenda3.Controllers
             ViewBag.ListarEventos = BD.ListarEventos();
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.Elegido = BD.TraerUnEvento(idEvento);
+            Evento unEvento = BD.TraerUnEvento(idEvento);
+            ViewBag.Fecha = unEvento.Dia.ToShortDateString();
             return View("DetalleEve");
         }
 
