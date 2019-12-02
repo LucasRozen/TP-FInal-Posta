@@ -88,7 +88,10 @@
                 <div class="dropdown-content">
                     @foreach (TiposEve tip in ViewBag.ListarEve)
                     {
-                        <a href='@Url.Action("EventosXCategoria","Home", new { IdCategoria =tip.IdTipEve, NombreTipo=tip.TipEve})'>@tip.TipEve</a>
+                        if (tip.Activo == true)
+                        {
+                        <a href='@Url.Action("EventosXCategoria", "Home", new { IdCategoria = tip.IdTipEve, NombreTipo = tip.TipEve })'>@tip.TipEve</a>
+                        }
                     }
                 </div>
             </div>
