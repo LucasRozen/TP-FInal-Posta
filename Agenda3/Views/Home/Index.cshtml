@@ -27,7 +27,7 @@
             {
                 if (UnEvento.Destac == false)
                 {
-                    <li class="correte">@UnEvento.Nombre</li>
+                    <li style="font-size:x-large">@UnEvento.Nombre</li>
                     <a href='@Url.Action("DetalleEve","Home", new { idEvento = UnEvento.IdEve, Nombre = UnEvento.Nombre})'>Detalles </a>
                 }
             }
