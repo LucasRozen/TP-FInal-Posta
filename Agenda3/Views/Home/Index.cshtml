@@ -12,7 +12,7 @@
    
         @foreach (Evento UnEvento in ViewBag.ListarEventos)
         {
-                       if (UnEvento.Destac == true)
+            if (UnEvento.Destac == true)
             {
         <h2 align="center" >@UnEvento.Nombre</h2 align="center">
         <h3 align="center"><a href='@Url.Action("DetalleEve","Home", new { idEvento = UnEvento.IdEve, Nombre = UnEvento.Nombre})'>Detalles </a></h3 align="center">
@@ -25,6 +25,7 @@
         <ul style="margin-left:3%">
             @foreach (Evento UnEvento in ViewBag.ListarEventos)
             {
+                
                 if (UnEvento.Destac == false)
                 {
                     <li style="font-size:x-large">@UnEvento.Nombre</li>
