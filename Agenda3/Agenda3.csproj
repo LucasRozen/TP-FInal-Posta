@@ -171,6 +171,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\1logo333333.jpg" />
     <Content Include="Content\amigos.jpg" />
     <Content Include="Content\Barra.css" />
     <Content Include="Content\bootstrap-grid.css" />
