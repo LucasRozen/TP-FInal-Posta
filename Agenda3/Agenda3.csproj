@@ -166,6 +166,7 @@
     </Compile>
     <Compile Include="Models\Amigos.cs" />
     <Compile Include="Models\Evento.cs" />
+    <Compile Include="Models\Fecha.cs" />
     <Compile Include="Models\TiposEve.cs" />
     <Compile Include="Models\BD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -265,6 +266,7 @@
     <Content Include="Views\BackOffice\AgregarEvento.cshtml" />
     <Content Include="Views\BackOffice\EditoTipos.cshtml" />
     <Content Include="Views\BackOffice\EditarEvento.cshtml" />
+    <Content Include="Views\BackOffice\dato.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

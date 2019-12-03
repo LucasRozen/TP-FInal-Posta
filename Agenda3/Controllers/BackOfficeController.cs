@@ -83,7 +83,7 @@ namespace Agenda3.Controllers
         }
         public ActionResult InsertarEvento(Evento eve)
         {
-            BD.AgregarEvento(eve.Nombre,eve.IdTipEve, eve.IdAmigo,eve.Dia, eve.Descripcion,  eve.Destac);
+            BD.AgregarEvento(eve.Nombre,eve.IdTipEve, eve.IdAmigo, Fecha.fecha, eve.Descripcion,  eve.Destac);
             return RedirectToAction("Eventos", "BackOffice");
         }
         public ActionResult EliminarEvento(int id)
@@ -96,7 +96,7 @@ namespace Agenda3.Controllers
             ViewBag.ListarAmigo = BD.ListarAmigos();
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListarTipos = BD.ListarTipoEve();
-            BD.EditarEvento(eve.Nombre, eve.IdTipEve, eve.IdAmigo, eve.Dia, eve.Descripcion, eve.Destac, eve.IdEve);
+            BD.EditarEvento(eve.Nombre, eve.IdTipEve, eve.IdAmigo, Fecha.fecha, eve.Descripcion, eve.Destac, eve.IdEve);
             return RedirectToAction("Eventos", "BackOffice");
         }
         public ActionResult EditarEvento(int id)
@@ -157,6 +157,12 @@ namespace Agenda3.Controllers
             BD.EditarTipo(tps.TipEve, tps.IdTipEve);
             return RedirectToAction("TiposEve", "BackOffice");
         }
-
+        public ActionResult dato(DateTime dato)
+        {
+            Fecha.fecha = dato;
+            ViewBag.ListarEve = BD.ListarTipoEve();
+            ViewBag.ListaAmigos = BD.ListarAmigos();
+            return View();
+        }
     }
 }

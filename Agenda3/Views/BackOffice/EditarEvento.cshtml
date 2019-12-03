@@ -1,19 +1,32 @@
 ﻿@using Agenda3.Models
 @model Evento
+@Scripts.Render("~/Scripts/jquery-3.4.1.js")
+<head>
+    <script>
+        function a() {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("dato", "BackOffice")',
+                data: { dato: document.getElementById("calendario").value }
+            })
+        }
+    </script>
+</head>
 
-
-
-@using (Html.BeginForm("EditoEvento", "Backoffice", FormMethod.Post))
-{
-    @Html.HiddenFor(model => model.IdEve)
-    <p>Nombre:</p> @Html.TextBoxFor(model => model.Nombre) <br />
-    <p>Evento:</p> @Html.DropDownListFor(TiposEve => TiposEve.IdTipEve, new SelectList(ViewBag.ListarTipos, "idTipEve", "TipEve")) <br />
-    <p>Amigo:</p> @Html.DropDownListFor(Amigos => Amigos.IdAmigo, new SelectList(ViewBag.ListaAmigos, "IdAmigo", "Nombre")) <br />
-    <p>Fecha:</p> @Html.TextBoxFor(model => model.Dia) <br />
-    <p>Descripcion:</p> @Html.TextBoxFor(model => model.Descripcion) <br />
-
-
-    @Html.HiddenFor(model => model.Activo)
-    <p>Destacada:</p> @Html.CheckBoxFor(model => model.Destac) <br />
-    <input type="submit" value="Enviar" />
-}
+<body>
+    @using (Html.BeginForm("EditoEvento", "Backoffice", FormMethod.Post))
+    {
+        @Html.HiddenFor(model => model.IdEve)
+        <p>Nombre:</p> @Html.TextBoxFor(model => model.Nombre) <br />
+        <p>Evento:</p> @Html.DropDownListFor(TiposEve => TiposEve.IdTipEve, new SelectList(ViewBag.ListarTipos, "idTipEve", "TipEve")) <br />
+        <p>Amigo:</p> @Html.DropDownListFor(Amigos => Amigos.IdAmigo, new SelectList(ViewBag.ListaAmigos, "IdAmigo", "Nombre")) <br />
+        <p>Fecha:</p>
+        <input type="date" id="calendario" onchange="a()" name="trip-start"
+               value="2019-12-03"
+               min="2019-01-01" max="2040-12-31"><br />
+        <p>Descripcion:</p> @Html.TextAreaFor(model => model.Descripcion) <br />
+        @Html.HiddenFor(model => model.Activo)
+        <p>Destacada:</p> @Html.CheckBoxFor(model => model.Destac) <br />
+        <input type="submit" value="Enviar" />
+    }
+</body>
