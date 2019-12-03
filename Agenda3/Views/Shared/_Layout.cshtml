@@ -79,22 +79,23 @@
     <div class="navbar">
         <a href='@Url.Action("Index","Home")'>Inicio</a>
         <a href='@Url.Action("Amigos","Home")'>Amigos</a>
-        <a href='@Url.Action("Index","BackOffice")'>Editar</a>
-            <div class="dropdown">
-                <button class="dropbtn">
-                    Categorias
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    @foreach (TiposEve tip in ViewBag.ListarEve)
+
+        <div class="dropdown">
+            <button class="dropbtn">
+                Categorias
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                @foreach (TiposEve tip in ViewBag.ListarEve)
+                {
+                    if (tip.Activo == true)
                     {
-                        if (tip.Activo == true)
-                        {
                         <a href='@Url.Action("EventosXCategoria", "Home", new { IdCategoria = tip.IdTipEve, NombreTipo = tip.TipEve })'>@tip.TipEve</a>
-                        }
                     }
-                </div>
+                }
             </div>
+        </div>
+        <a href='@Url.Action("Index","BackOffice")'>Editar</a>
     </div>
 
     
