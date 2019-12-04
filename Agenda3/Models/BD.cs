@@ -327,6 +327,7 @@ namespace Agenda3.Models
             {
                 int CantAmigos = Convert.ToInt32(Lector["IdEve"]);
             }
+            return 0;
             desconectar(Conexion);
         }
     }
