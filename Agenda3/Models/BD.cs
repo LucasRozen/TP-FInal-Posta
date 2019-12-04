@@ -317,5 +317,17 @@ namespace Agenda3.Models
             Consulta.ExecuteNonQuery();
             desconectar(Conexion);
         }
+        public static int TraerCantAmigos()
+        {
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.CommandText = "sp_TraerCantAmigos";
+            while (lector.read)
+            {
+                int CantAmigos = Convert.ToInt32(Lector["IdEve"]);
+            }
+            desconectar(Conexion);
+        }
     }
 }
