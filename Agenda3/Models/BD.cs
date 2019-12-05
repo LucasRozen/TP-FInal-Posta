@@ -317,18 +317,24 @@ namespace Agenda3.Models
             Consulta.ExecuteNonQuery();
             desconectar(Conexion);
         }
-        public static int TraerCantAmigos()
+        public static List<Amigos> ListaAmigosXEventos(int idEvento)
         {
+            List<AmigosXEvento> ListaAmigosXEventos = new List<AmigosXEvento>();
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            Consulta.CommandText = "sp_TraerCantAmigos";
-            while (lector.read)
+            Consulta.CommandText = "sp_TraerAmigosXEventos";
+            Consulta.Parameters.AddWithValue("@idEvento", idEvento);
+            SqlDataReader Lector = Consulta.ExecuteReader();
+            while (Lector.Read())
             {
-                int CantAmigos = Convert.ToInt32(Lector["IdEve"]);
+                AmigosXEvento UnAmigo = new AmigosXEvento();
+                UnAmigo.Nombre = Lector["Nombre"].ToString();
+                ListaAmigosXEventos.Add(UnAmigo);
             }
-            return 0;
             desconectar(Conexion);
+            
+            return ListaAmigosXEventos;
         }
     }
 }
