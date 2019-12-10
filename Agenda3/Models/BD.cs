@@ -326,6 +326,7 @@ namespace Agenda3.Models
             Consulta.CommandText = "sp_TraerAmigosXEventos";
             Consulta.Parameters.AddWithValue("@idEvento", idEvento);
             SqlDataReader Lector = Consulta.ExecuteReader();
+            
             while (Lector.Read())
             {
                 AmigosXEvento UnAmigo = new AmigosXEvento();
