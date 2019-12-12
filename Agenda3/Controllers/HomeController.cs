@@ -13,6 +13,7 @@ namespace Agenda3.Controllers
         {
             ViewBag.ListarEventos = BD.ListarEventos();
             ViewBag.ListarEve = BD.ListarTipoEve();
+            ViewBag.ListarAmigos = BD.ListarAmigosXEvento();
             return View();
         }
        

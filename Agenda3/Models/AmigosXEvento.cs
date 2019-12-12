@@ -16,5 +16,9 @@ namespace Agenda3.Models
         {
 
         }
+        public AmigosXEvento (string Nombre)
+        {
+            _Nombre = Nombre;
+        }
     }
 }

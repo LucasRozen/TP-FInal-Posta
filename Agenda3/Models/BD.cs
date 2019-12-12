@@ -105,22 +105,10 @@ namespace Agenda3.Models
 
             while (Lector.Read())
             {
-                if (Lector["IdAmigo"] == DBNull.Value)
                 {
                     UnEvento.IdEve = Convert.ToInt32(Lector["IdEve"]);
                     UnEvento.Nombre = Lector["Nombre"].ToString();
                     UnEvento.IdTipEve = Convert.ToInt32(Lector["TipoEve"]);
-                    UnEvento.Dia = Convert.ToDateTime(Lector["Dia"]);
-                    UnEvento.Descripcion = Lector["Descripcion"].ToString();
-                    UnEvento.Activo = Convert.ToBoolean(Lector["Activo"]);
-                    UnEvento.Destac = Convert.ToBoolean(Lector["Destac"]);
-                }
-                else
-                {
-                    UnEvento.IdEve = Convert.ToInt32(Lector["IdEve"]);
-                    UnEvento.Nombre = Lector["Nombre"].ToString();
-                    UnEvento.IdTipEve = Convert.ToInt32(Lector["TipoEve"]);
-                    UnEvento.IdAmigo = Convert.ToInt32(Lector["IdAmigo"]);
                     UnEvento.Dia = Convert.ToDateTime(Lector["Dia"]);
                     UnEvento.Descripcion = Lector["Descripcion"].ToString();
                     UnEvento.Activo = Convert.ToBoolean(Lector["Activo"]);
@@ -200,7 +188,6 @@ namespace Agenda3.Models
             SqlDataReader Lector = Consulta.ExecuteReader();
             while (Lector.Read())
             {
-                if(Lector["IdAmigo"] == DBNull.Value)
                 {
                     int IdEve = Convert.ToInt32(Lector["IdEve"]);
                     string Nombre = Lector["Nombre"].ToString();
@@ -210,19 +197,6 @@ namespace Agenda3.Models
                     bool Act = Convert.ToBoolean(Lector["Activo"]);
                     bool destac = Convert.ToBoolean(Lector["Destac"]);
                     Evento UnEven = new Evento(IdEve, Nombre, IdTEve, dia, descr, Act, destac);
-                    ListaEventos.Add(UnEven);
-                }
-                else
-                {
-                    int IdEve = Convert.ToInt32(Lector["IdEve"]);
-                    string Nombre = Lector["Nombre"].ToString();
-                    int IdTEve = Convert.ToInt32(Lector["TipoEve"]);
-                    int IdAmi = Convert.ToInt32(Lector["IdAmigo"]);
-                    DateTime dia = Convert.ToDateTime(Lector["Dia"]);
-                    string descr = Lector["Descripcion"].ToString();
-                    bool Act = Convert.ToBoolean(Lector["Activo"]);
-                    bool destac = Convert.ToBoolean(Lector["Destac"]);
-                    Evento UnEven = new Evento(IdEve, Nombre, IdTEve, IdAmi, dia, descr, Act, destac);
                     ListaEventos.Add(UnEven);
                 }
             }
@@ -242,7 +216,6 @@ namespace Agenda3.Models
             Consulta.Parameters.AddWithValue("@IdA", IdAmigo);
             Consulta.Parameters.AddWithValue("@dia", Dia);
             Consulta.Parameters.AddWithValue("@desc", Descripcion);
-           
             Consulta.Parameters.AddWithValue("@destac", Destac); 
             Consulta.ExecuteNonQuery();
             desconectar(Conexion);
@@ -317,25 +290,29 @@ namespace Agenda3.Models
             Consulta.ExecuteNonQuery();
             desconectar(Conexion);
         }
-        public static List<Amigos> ListaAmigosXEventos(int idEvento)
+        public static List<AmigosXEvento> ListarAmigosXEvento()
         {
-            List<AmigosXEvento> ListaAmigosXEventos = new List<AmigosXEvento>();
+
+            List<AmigosXEvento> ListaAmigos = new List<AmigosXEvento>();
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.Parameters.AddWithValue("@idEvento", 13);
             Consulta.CommandText = "sp_TraerAmigosXEventos";
-            Consulta.Parameters.AddWithValue("@idEvento", idEvento);
             SqlDataReader Lector = Consulta.ExecuteReader();
-            
+            //FALTA EL PARAMETRO
+
             while (Lector.Read())
             {
-                AmigosXEvento UnAmigo = new AmigosXEvento();
-                UnAmigo.Nombre = Lector["Nombre"].ToString();
-                ListaAmigosXEventos.Add(UnAmigo);
+                {
+                    string Nombre = Lector["Nombre"].ToString();
+
+                    AmigosXEvento UnAmigo = new AmigosXEvento(Nombre);
+                    ListaAmigos.Add(UnAmigo);
+                }
             }
             desconectar(Conexion);
-            
-            return ListaAmigosXEventos;
+            return ListaAmigos;
         }
     }
 }
