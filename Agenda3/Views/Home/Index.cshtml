@@ -8,34 +8,34 @@
     <title> Evento Destacada </title>
 </head>
 <body>
-            @foreach (Evento UnEvento in ViewBag.ListarEventos)
+    @foreach (Evento UnEvento in ViewBag.ListarEventos)
+    {
+        if (UnEvento.Destac == true)
+        {
+            <h2 align="center">@UnEvento.Nombre</h2>
+            <h3 align="center"><a href='@Url.Action("DetalleEve","Home", new { idEvento = UnEvento.IdEve, Nombre = UnEvento.Nombre})'>Detalles </a></h3>
+
+
+
+        }
+
+    }
+    <ul style="margin-left:3%">
+        @foreach (Evento UnEvento in ViewBag.ListarEventos)
+        {
+
+            if (UnEvento.Destac == false)
             {
-                if (UnEvento.Destac == true)
-                {
-                    <h2 align="center">@UnEvento.Nombre</h2>
-                    <h3 align="center"><a href='@Url.Action("DetalleEve","Home", new { idEvento = UnEvento.IdEve, Nombre = UnEvento.Nombre})'>Detalles </a></h3>
-                    <h2>align="center" ></h2>
-
-
-                }
-
+                <li style="font-size:x-large">@UnEvento.Nombre</li>
+                <a href='@Url.Action("DetalleEve","Home", new { idEvento = UnEvento.IdEve, Nombre = UnEvento.Nombre})'>Detalles </a>
             }
-                    <ul style="margin-left:3%">
-                        @foreach (Evento UnEvento in ViewBag.ListarEventos)
-                        {
+        }
+                <li> aca iria elcódigo de abajo sin el "li"</li>
+    </ul>
 
-                            if (UnEvento.Destac == false)
-                            {
-                                <li style="font-size:x-large">@UnEvento.Nombre</li>
-                                <a href='@Url.Action("DetalleEve","Home", new { idEvento = UnEvento.IdEve, Nombre = UnEvento.Nombre})'>Detalles </a>
-                            }
-                        }
-                        @foreach (AmigosXEvento UnAmigo in ViewBag.ListarAmigosXEvento)
-                        {
-                            <li style="font-size:x-large">@UnAmigo.Nombre</li>
-                        }
-                    </ul>
-
-
+    (arroba)foreach (AmigosXEvento UnAmigo in ViewBag.ListarAmigosXEvento)
+    {
+        <li style="font-size:x-large">(arroba) UnAmigo.Nombre</li>
+    }
 
 </body>
