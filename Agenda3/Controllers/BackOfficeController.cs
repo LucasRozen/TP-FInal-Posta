@@ -91,8 +91,18 @@ namespace Agenda3.Controllers
             BD.EliminarEvento(id);
             return RedirectToAction("Eventos", "BackOffice");
         }
+
+        public ActionResult EliminarAmigoEvento(int idEve, int idAmigo)
+        {
+            BD.EliminarAmigoEvento(idEve, idAmigo);
+            return RedirectToAction("EditoAmigo","Backoffice");
+
+
+        }
+
         public ActionResult EditoEvento(Evento eve)
         {
+            
             ViewBag.ListarAmigo = BD.ListarAmigos();
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListarTipos = BD.ListarTipoEve();
@@ -101,6 +111,7 @@ namespace Agenda3.Controllers
         }
         public ActionResult EditarEvento(int id)
         {
+            ViewBag.ListarAmigos = BD.ListarAmigosXEvento(id);
             ViewBag.ListaAmigos = BD.ListarAmigos();
             ViewBag.ListarEve = BD.ListarTipoEve();
             ViewBag.ListarTipos = BD.ListarTipoEve();

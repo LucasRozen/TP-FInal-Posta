@@ -279,6 +279,18 @@ namespace Agenda3.Models
             desconectar(Conexion);
         }
 
+        public static void EliminarAmigoEvento(int IdEve, int IdAmigo)
+        {
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.CommandText = "sp_EliminarAmigoEvento";
+            Consulta.Parameters.AddWithValue("@idAmigo", IdAmigo);
+            Consulta.Parameters.AddWithValue("@idEvento", IdEve);
+            Consulta.ExecuteNonQuery();
+            desconectar(Conexion);
+        }
+
         public static void EliminarTipo(int id)
         {
 
@@ -290,17 +302,16 @@ namespace Agenda3.Models
             Consulta.ExecuteNonQuery();
             desconectar(Conexion);
         }
-        public static List<AmigosXEvento> ListarAmigosXEvento()
+        public static List<AmigosXEvento> ListarAmigosXEvento(int IdEvento)
         {
 
             List<AmigosXEvento> ListaAmigos = new List<AmigosXEvento>();
             SqlConnection Conexion = Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            Consulta.Parameters.AddWithValue("@idEvento", 13);
+            Consulta.Parameters.AddWithValue("@idEvento", IdEvento);
             Consulta.CommandText = "sp_TraerAmigosXEventos";
             SqlDataReader Lector = Consulta.ExecuteReader();
-            //FALTA EL PARAMETRO
 
             while (Lector.Read())
             {
