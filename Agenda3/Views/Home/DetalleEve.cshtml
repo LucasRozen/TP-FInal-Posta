@@ -1,4 +1,6 @@
 ﻿@using Agenda3.Models
+
+
 @{
     ViewBag.Title = "DetalleEve";
 }
@@ -7,5 +9,5 @@
 <p>@ViewBag.Fecha</p>
 @foreach (AmigosXEvento amigosXEvento in ViewBag.ListarAmigos)
 {
-<li>@amigosXEvento.Nombre <a href="@Url.Action("EliminarAmigoEvento", "Backoffice", new {id=}</li>
-}
+    <li>@amigosXEvento.Nombre <a href="@Url.Action("EliminarAmigoEvento", "Backoffice", new {idAmigo=amigosXEvento.IdAmigo}, new { idEvento = amigosXEvento.IdEve }</li>
+    }

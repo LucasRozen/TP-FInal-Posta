@@ -15,6 +15,7 @@ namespace Agenda3.Models
         private string _Descripcion;
         private bool _Activo;
         private bool _Destac;
+
         public int IdEve { get => _IdEve; set => _IdEve = value; }
         public string Nombre { get => _Nombre; set => _Nombre = value; }
         public int IdTipEve { get => _idTipEve; set => _idTipEve = value; }
