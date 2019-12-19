@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -317,6 +318,8 @@ namespace Agenda3.Models
             {
                 {
                     string Nombre = Lector["Nombre"].ToString();
+                    int IdAmigo = Convert.ToInt32(Lector["idAmigo"]);
+                    IdEvento = Convert.ToInt32(Lector["idEvento"]);
 
                     AmigosXEvento UnAmigo = new AmigosXEvento(Nombre);
                     ListaAmigos.Add(UnAmigo);

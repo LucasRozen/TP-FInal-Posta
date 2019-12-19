@@ -9,5 +9,6 @@
 <p>@ViewBag.Fecha</p>
 @foreach (AmigosXEvento amigosXEvento in ViewBag.ListarAmigos)
 {
-    <li>@amigosXEvento.Nombre <a href="@Url.Action("EliminarAmigoEvento", "Backoffice", new {idAmigo=amigosXEvento.IdAmigo}, new { idEvento = amigosXEvento.IdEve }</li>
-    }
+    <li>@amigosXEvento.Nombre <a href="@Url.Action("EliminarAmigoEvento", "Backoffice", new { idAmigo = amigosXEvento.IdAmigo, idEvento = amigosXEvento.IdEvento })"> Eliminar Amigo</a></li>
+
+}
