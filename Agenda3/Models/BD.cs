@@ -321,7 +321,7 @@ namespace Agenda3.Models
                     int IdAmigo = Convert.ToInt32(Lector["idAmigo"]);
                     IdEvento = Convert.ToInt32(Lector["idEvento"]);
 
-                    AmigosXEvento UnAmigo = new AmigosXEvento(Nombre);
+                    AmigosXEvento UnAmigo = new AmigosXEvento(Nombre, IdAmigo, IdEvento);
                     ListaAmigos.Add(UnAmigo);
                 }
             }

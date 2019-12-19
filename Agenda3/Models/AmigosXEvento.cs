@@ -20,9 +20,11 @@ namespace Agenda3.Models
         {
 
         }
-        public AmigosXEvento (string Nombre)
+        public AmigosXEvento (string Nombre, int IdAmigo, int IdEvento)
         {
             _Nombre = Nombre;
+            _IdAmigo = IdAmigo;
+            _IdEvento = IdEvento;
         }
     }
 }
