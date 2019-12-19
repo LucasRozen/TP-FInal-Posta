@@ -95,7 +95,8 @@ namespace Agenda3.Controllers
         public ActionResult EliminarAmigoEvento(int idEvento, int idAmigo)
         {
             BD.EliminarAmigoEvento(idEvento, idAmigo);
-            return RedirectToAction("EditoAmigo","Backoffice");
+            int id = idEvento;
+            return RedirectToAction("DetalleEve","Home", new { idEvento = id });
 
 
         }
